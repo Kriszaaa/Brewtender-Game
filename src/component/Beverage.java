@@ -1,5 +1,15 @@
 package component;
 
-public class Beverage {
+import javafx.scene.image.Image;
 
+public class Beverage extends Ingredient implements Edible{
+	
+	
+	public Beverage(String name,String description,int concentration) {
+		super(name,description);
+		this.setConcentration(concentration);
+	}
+	public void canServe() {
+		
+	}
 }
