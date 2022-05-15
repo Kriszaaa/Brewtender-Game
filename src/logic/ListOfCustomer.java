@@ -6,6 +6,8 @@ import java.util.Random;
 import component.Beverage;
 import component.Flavoring;
 import component.Ingredient;
+import component.Recipe;
+import component.RecipeStorage;
 import container.Size;
 
 public class ListOfCustomer {
@@ -25,19 +27,34 @@ public class ListOfCustomer {
 	
 	
 	
-	public static ArrayList<Customer> generateCustomerList(Mode mode) {
+	public static void generateCustomerList(Mode mode) {
 		
 		if(mode.equals(Mode.EASY)) {
-			
-			
-			
-			
+			ArrayList<Customer> customerList = new ArrayList<Customer>();
+			String rand_des;
+			ArrayList<Ingredient> rand_rep;
+			Random rand = new Random();
+			int randnum;
+			for(int i=0;i<20;i++) {
+				randnum = rand.nextInt(RecipeStorage.getAllrecipes().size());
+				rand_des = RecipeStorage.getAllrecipes().get(randnum).getDescription();
+				rand_rep = RecipeStorage.getAllrecipes().get(randnum).getListofingredient();
+				customerList.add(new Customer(rand_des,rand_rep,randomSize()));
+			}
+			setCustomerList(customerList);
 		}else {
 			
 		}
-		return CustomerList;
 	}
 	
+	public static ArrayList<Customer> getCustomerList() {
+		return CustomerList;
+	}
+
+	public static void setCustomerList(ArrayList<Customer> customerList) {
+		CustomerList = customerList;
+	}
+
 	public static Size randomSize() {
 		Random rand = new Random();
 		int randnum = rand.nextInt(3);

@@ -10,6 +10,7 @@ import java.util.Random;
 import component.Beverage;
 import component.Flavoring;
 import component.Ingredient;
+import component.RecipeStorage;
 import container.Glass;
 import container.Size;
 
@@ -29,6 +30,7 @@ public class GameLogic {
 	private static Mode mode;
 	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("","",""));
 	private static int trytimes = 3;
+	private static int orderrunner = 0;
 			
 	public static void selectMode(Mode choosenMode) {
 		mode = choosenMode;
@@ -39,8 +41,17 @@ public class GameLogic {
 		startRunOrder();
 	}
 	public static void startRunOrder() {
-		CustomerList = ListOfCustomer.generateCustomerList(mode);
 		
+		RecipeStorage.createRecipes();
+		ListOfCustomer.generateCustomerList(Mode.EASY);
+		CustomerList = ListOfCustomer.getCustomerList();
+		/*for(int i = 0;i<20;i++) {
+			System.out.println(CustomerList.get(i).getDescription()+" "+CustomerList.get(i).getRecipes()+" "+CustomerList.get(i).getSize());
+		}*/
+	}
+	public static Customer callNextCustomer() {
+		trytimes = 3;
+		return CustomerList.get(orderrunner);
 	}
 	public static void chooseMode() {
 		
@@ -54,6 +65,7 @@ public class GameLogic {
 				callNextCustomer();
 			}else {
 				System.out.print("Wrong Ingredient");
+				
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Wrong Ingredients");
 				
@@ -64,12 +76,13 @@ public class GameLogic {
 				alert.setContentText(errortext);
 				alert.getButtonTypes().clear();
 				
-				ButtonType ok = new ButtonType("ok");
-				alert.getButtonTypes().add(ok);
+				ButtonType tryagain = new ButtonType("Try("+trytimes+")");
+				trytimes -= 1;
+				alert.getButtonTypes().add(tryagain);
 				
 				Optional<ButtonType> option = alert.showAndWait();
 				
-				if(option.get() == ok) {
+				if(option.get() == tryagain) {
 					Platform.exit();
 				}
 			}
@@ -83,8 +96,7 @@ public class GameLogic {
 			alert.setContentText(e.getMessage());
 			alert.getButtonTypes().clear();
 			
-			ButtonType ok = new ButtonType("Try("+trytimes+")");
-			trytimes -= 1;
+			ButtonType ok = new ButtonType("ok");
 			alert.getButtonTypes().add(ok);
 			
 			Optional<ButtonType> option = alert.showAndWait();
@@ -93,9 +105,6 @@ public class GameLogic {
 				Platform.exit();
 			}
 		}
-	}
-	public static void callNextCustomer() {
-		trytimes = 3;
 	}
 	public static Ingredient createIngredientFromName(String s){
 		switch(s) {
