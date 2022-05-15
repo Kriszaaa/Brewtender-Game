@@ -12,7 +12,13 @@ public class Ingredient {
 		this.setName(name);
 		this.setDescription(description);
 	}
-
+	
+	public boolean checkSameIngredient(Ingredient i) {
+		if(this.getName().equals(i.getName()) && this.getConcentration() ==  i.getConcentration()) {
+			return true;
+		}
+		return false;
+	}
 	
 	public String getName() {
 		return name;

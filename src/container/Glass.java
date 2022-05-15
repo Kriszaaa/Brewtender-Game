@@ -14,16 +14,18 @@ public class Glass {
 	private ArrayList<Ingredient> drink;
 	private int MaxIngredient = 5;
 	private int Capacity;
-	private Size size;
+	private Size size = Size.EMPTY;
 	
 	public Glass() {
-		this.drink = new ArrayList<Ingredient>();
+		ArrayList<Ingredient> drink = new ArrayList<Ingredient>();
+		this.setDrink(drink);
 		this.setCapacity(0);
 	}
 	
 	public void addIngredient(Ingredient ingredient) {
 
 		if(this.Capacity < this.MaxIngredient) {
+			ArrayList<Ingredient> drink = this.getDrink();
 			boolean Notfound = true;
 			for(Ingredient i:drink) {
 				if(i.getName().equals(ingredient.getName())) {
@@ -41,16 +43,18 @@ public class Glass {
 				}
 				
 			}
+			this.setDrink(drink);
 			this.setCapacity(this.getCapacity()+1);
 		}
 	}
 	public void clearGlass() {
-		this.drink.clear();
+		ArrayList<Ingredient> drink = new ArrayList<Ingredient>();
+		this.setDrink(drink);
 		this.setCapacity(0);
 	}
 	
 	public boolean isServable() {
-		for(Ingredient i:drink) {
+		for(Ingredient i:this.getDrink()) {
 			if(i instanceof Edible) {
 				return true;
 			}
@@ -71,6 +75,14 @@ public class Glass {
 
 	public void setCapacity(int capacity) {
 		Capacity = capacity;
+	}
+
+	public ArrayList<Ingredient> getDrink() {
+		return drink;
+	}
+
+	public void setDrink(ArrayList<Ingredient> drink) {
+		this.drink = drink;
 	}
 	
 	
