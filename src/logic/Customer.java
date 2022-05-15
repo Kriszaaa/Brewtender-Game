@@ -9,12 +9,26 @@ public class Customer {
 	private String description;
 	private ArrayList<Ingredient> drink;
 	private Size size;
+	private String recipes = "";
+	
 	public Customer(String description,ArrayList<Ingredient> drink,Size size) {
 		this.setDescription(description);
 		this.setDrink(drink);
 		this.setSize(size);
 	}
+	public Customer(String description,ArrayList<Ingredient> drink,Size size,String recipes) {
+		this.setDescription(description);
+		this.setDrink(drink);
+		this.setSize(size);
+		this.setRecipes(recipes);
+	}
 	
+	public String getRecipes() {
+		return recipes;
+	}
+	public void setRecipes(String recipes) {
+		this.recipes = recipes;
+	}
 	public String getDescription() {
 		return description;
 	}

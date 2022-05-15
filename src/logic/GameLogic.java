@@ -1,8 +1,11 @@
 package logic;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Optional;
+import java.util.Random;
 
 import component.Beverage;
 import component.Flavoring;
@@ -21,31 +24,23 @@ public class GameLogic {
 	private static Timer playerTimer;
 	private static int playerScore;
 	private static Glass glass;
-	
+	private static ArrayList<Customer> CustomerList;
 	private String errorText = "";
-	
+	private static Mode mode;
+	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("","",""));
+	private static int trytimes = 3;
 			
-	public static void startCountDownTimer(int pl) {
-
-		Thread thread = new Thread(() -> {
-			try {
-				runCountDownTimer(pl);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		});
-		thread.start();
+	public static void selectMode(Mode choosenMode) {
+		mode = choosenMode;
 	}
 	public static void startGame() {
 		glass = new Glass();
 		System.out.println("start");
+		startRunOrder();
 	}
-	public static void runCountDownTimer(int pl) throws InterruptedException {
+	public static void startRunOrder() {
+		CustomerList = ListOfCustomer.generateCustomerList(mode);
 		
-	}
-	public static void beginTurns(int pl) {
-
 	}
 	public static void chooseMode() {
 		
@@ -59,6 +54,24 @@ public class GameLogic {
 				callNextCustomer();
 			}else {
 				System.out.print("Wrong Ingredient");
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Wrong Ingredients");
+				
+				alert.setHeaderText(null);
+				Random rand = new Random();
+				int randnum = rand.nextInt(3);
+				String errortext = ErrorText.get(randnum);
+				alert.setContentText(errortext);
+				alert.getButtonTypes().clear();
+				
+				ButtonType ok = new ButtonType("ok");
+				alert.getButtonTypes().add(ok);
+				
+				Optional<ButtonType> option = alert.showAndWait();
+				
+				if(option.get() == ok) {
+					Platform.exit();
+				}
 			}
 		}catch(ServeFailedException e) {
 			//e.printErrormessage();
@@ -70,7 +83,8 @@ public class GameLogic {
 			alert.setContentText(e.getMessage());
 			alert.getButtonTypes().clear();
 			
-			ButtonType ok = new ButtonType("ok");
+			ButtonType ok = new ButtonType("Try("+trytimes+")");
+			trytimes -= 1;
 			alert.getButtonTypes().add(ok);
 			
 			Optional<ButtonType> option = alert.showAndWait();
@@ -81,8 +95,7 @@ public class GameLogic {
 		}
 	}
 	public static void callNextCustomer() {
-		
-		
+		trytimes = 3;
 	}
 	public static Ingredient createIngredientFromName(String s){
 		switch(s) {

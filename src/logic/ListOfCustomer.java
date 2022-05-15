@@ -1,10 +1,12 @@
 package logic;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import component.Beverage;
 import component.Flavoring;
 import component.Ingredient;
+import container.Size;
 
 public class ListOfCustomer {
 	
@@ -22,14 +24,29 @@ public class ListOfCustomer {
 	private static Flavoring soda = new Flavoring("Soda","A liquid that bubbles over. It has no taste, but its mouthfeel packs a punch",1);
 	
 	
-	public static ArrayList<Customer> ListOfCustomer(Mode mode) {
+	
+	public static ArrayList<Customer> generateCustomerList(Mode mode) {
+		
 		if(mode.equals(Mode.EASY)) {
-			ArrayList<Ingredient> atn = new ArrayList(Arrays.asList(Ingredient.setCondense(coffee, 3)));
-			String atndes = "Coffee x 3";
+			
+			
+			
 			
 		}else {
 			
 		}
 		return CustomerList;
+	}
+	
+	public static Size randomSize() {
+		Random rand = new Random();
+		int randnum = rand.nextInt(3);
+		if (randnum == 0) {
+			return Size.SMALL;
+		}else if(randnum == 1) {
+			return Size.MEDIUM;
+		}else{
+			return Size.LARGE;
+		}
 	}
 }
