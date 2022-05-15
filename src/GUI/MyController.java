@@ -13,7 +13,7 @@ public class MyController implements Initializable{
 	
 	@FXML
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
-	private Button StartButton;
+	private Button StartButton,NewGameButton;
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();

@@ -88,6 +88,9 @@ public class GameLogic {
 				return null;
 		}
 	}
+	public static void clearGlass() {
+		glass = new Glass();
+	}
 	
 	public static void addIngredientToGlass(String name) {
 		Ingredient ingredient = createIngredientFromName(name);
