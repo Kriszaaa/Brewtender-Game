@@ -54,8 +54,9 @@ public class Glass {
 	public void showDrink() {
 		System.out.print("\nDrink :");
 		for(Ingredient i:this.getDrink()) {
-			System.out.println("\n"+i.getName()+" "+i.getConcentration());
+			System.out.println(i.getName()+" "+i.getConcentration());
 		}
+		System.out.println(this.getSize());
 	}
 	
 	public void clearGlass() {

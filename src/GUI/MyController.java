@@ -3,6 +3,7 @@ package GUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import container.Size;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -22,7 +23,10 @@ public class MyController implements Initializable{
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
 	
 	@FXML
-	private Button StartButton,NewGameButton;
+	private Button StartButton,NewGameButton,serveButton;
+	
+	@FXML
+	private Button small,medium,large;
 	
 	@FXML
 	private Text timerText;
@@ -39,7 +43,7 @@ public class MyController implements Initializable{
 		GameLogic.clearGlass();
 	}
 	public void serve(ActionEvent e) {
-		
+		GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer());
 	}
 	public void customerOrder(ActionEvent e) {
 		
@@ -52,7 +56,20 @@ public class MyController implements Initializable{
 		exit = true;
 		
 	}
-	
+	public void fillSize(ActionEvent e) {
+		Button btn = (Button) e.getSource();
+		switch(btn.getId()) {
+		case "small":
+			GameLogic.setglassSize(Size.SMALL);
+			break;
+		case "medium":
+			GameLogic.setglassSize(Size.MEDIUM);
+			break;
+		case "large":
+			GameLogic.setglassSize(Size.LARGE);
+			break;
+		}
+	}
 	public void add(ActionEvent e) {
 		Button btn = (Button) e.getSource();
 		switch(btn.getId()) {

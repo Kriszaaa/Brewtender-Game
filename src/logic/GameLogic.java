@@ -24,6 +24,7 @@ public class GameLogic {
 
 	private static Timer playerTimer;
 	private static int playerScore;
+	
 	private static Glass glass;
 	private static ArrayList<Customer> CustomerList;
 	private String errorText = "";
@@ -31,6 +32,7 @@ public class GameLogic {
 	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("","",""));
 	private static int trytimes = 3;
 	private static int orderrunner = 0;
+	private static Customer presentcustomer;
 			
 	public static void selectMode(Mode choosenMode) {
 		mode = choosenMode;
@@ -45,13 +47,15 @@ public class GameLogic {
 		RecipeStorage.createRecipes();
 		ListOfCustomer.generateCustomerList(Mode.EASY);
 		CustomerList = ListOfCustomer.getCustomerList();
+		presentcustomer = CustomerList.get(orderrunner);
 		/*for(int i = 0;i<20;i++) {
 			System.out.println(CustomerList.get(i).getDescription()+" "+CustomerList.get(i).getRecipes()+" "+CustomerList.get(i).getSize());
 		}*/
 	}
-	public static Customer callNextCustomer() {
+	public static void callNextCustomer() {
 		trytimes = 3;
-		return CustomerList.get(orderrunner);
+		orderrunner += 1;
+		presentcustomer = CustomerList.get(orderrunner);
 	}
 	public static void chooseMode() {
 		
@@ -60,6 +64,8 @@ public class GameLogic {
 		
 	}
 	public static void Serve(Glass glass,Customer customer) {
+		
+		System.out.println("serve");
 		try {
 			if(DrinkValidator.checkDrink(customer,glass)) {
 				callNextCustomer();
@@ -83,7 +89,7 @@ public class GameLogic {
 				Optional<ButtonType> option = alert.showAndWait();
 				
 				if(option.get() == tryagain) {
-					Platform.exit();
+					alert.close();
 				}
 			}
 		}catch(ServeFailedException e) {
@@ -92,6 +98,7 @@ public class GameLogic {
 			alert.setTitle("ServeFail");
 			
 			alert.setHeaderText(null);
+			
 			
 			alert.setContentText(e.getMessage());
 			alert.getButtonTypes().clear();
@@ -102,7 +109,7 @@ public class GameLogic {
 			Optional<ButtonType> option = alert.showAndWait();
 			
 			if(option.get() == ok) {
-				Platform.exit();
+				alert.close();
 			}
 		}
 	}
@@ -134,8 +141,20 @@ public class GameLogic {
 		glass = new Glass();
 	}
 	
+	public static Glass getGlass() {
+		return glass;
+	}
+
+	public static Customer getPresentcustomer() {
+		return presentcustomer;
+	}
+
 	public static void addIngredientToGlass(String name) {
 		Ingredient ingredient = createIngredientFromName(name);
 		glass.addIngredient(ingredient);
+	}
+	public static void setglassSize(Size size) {
+		glass.setSize(size);
+		System.out.println(glass.getSize());
 	}
 }

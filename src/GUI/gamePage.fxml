@@ -104,9 +104,9 @@
                <children>
                   <Pane prefHeight="279.0" prefWidth="79.0">
                      <children>
-                        <Button layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" text="S" />
-                        <Button layoutX="10.0" layoutY="47.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" text="M" />
-                        <Button layoutX="10.0" layoutY="81.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="64.0" text="L" />
+                        <Button fx:id="small" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="S" />
+                        <Button fx:id="medium" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="M" />
+                        <Button fx:id="large" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="L" />
                      </children>
                   </Pane>
                </children>
@@ -165,7 +165,7 @@
       </TitledPane>
       <Pane layoutX="393.0" layoutY="103.0" prefHeight="334.0" prefWidth="100.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="103.0">
          <children>
-            <Button layoutX="18.0" layoutY="22.0" mnemonicParsing="false" style="-fx-background-color: green;" text="SERVE" textFill="WHITE">
+            <Button fx:id="serveButton" layoutX="18.0" layoutY="22.0" mnemonicParsing="false" onAction="#serve" style="-fx-background-color: green;" text="SERVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
