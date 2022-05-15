@@ -9,6 +9,9 @@ public class Beverage extends Ingredient implements Edible{
 		super(name,description);
 		this.setConcentration(concentration);
 	}
+	public Beverage(String name) {
+		super(name);
+	}
 	public void canServe() {
 		
 	}

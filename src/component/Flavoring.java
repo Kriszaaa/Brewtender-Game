@@ -9,6 +9,9 @@ public class Flavoring extends Ingredient{
 		super(name,description);
 		this.setConcentration(concentration);
 	}
+	public Flavoring(String name) {
+		super(name);
+	}
 	
 }
 

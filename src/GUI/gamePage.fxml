@@ -33,7 +33,7 @@
          <content>
             <AnchorPane>
                <children>
-                  <Button layoutX="4.800000190734863" layoutY="25.600000381469727" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="milk" layoutX="4.800000190734863" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="95.19999694824219" layoutY="25.600000381469727" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="caramel" layoutX="95.19999694824219" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -51,7 +51,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="4.800000190734863" layoutY="134.39999389648438" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="cocoa" layoutX="4.800000190734863" layoutY="134.39999389648438" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -60,7 +60,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="95.19999694824219" layoutY="133.60000610351562" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="soda" layoutX="95.19999694824219" layoutY="133.60000610351562" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -69,7 +69,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="25.600000381469727" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="mint" alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="134.39999389648438" mnemonicParsing="false" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="lemon" alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="134.39999389648438" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -114,7 +114,7 @@
       </TitledPane>
       <VBox alignment="CENTER" layoutX="493.0" prefHeight="467.0" prefWidth="98.0" spacing="5.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1.6000000000000227" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="StartButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Start" />
+            <Button fx:id="StartButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="72.0" text="Start" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="New game" />
          </children>
          <padding>
@@ -125,7 +125,7 @@
         <content>
             <AnchorPane>
                <children>
-                  <Button layoutY="10.0" mnemonicParsing="false">
+                  <Button fx:id="coffee" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -134,7 +134,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="91.0" layoutY="10.0" mnemonicParsing="false">
+                  <Button fx:id="tea" layoutX="91.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -143,7 +143,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="182.0" layoutY="10.0" mnemonicParsing="false">
+                  <Button fx:id="juice" layoutX="182.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="66.0" pickOnBounds="true">
                            <image>

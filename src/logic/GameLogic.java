@@ -3,8 +3,12 @@ package logic;
 
 import java.util.Hashtable;
 
+import component.Beverage;
+import component.Flavoring;
+import component.Ingredient;
 import container.Glass;
 import container.Size;
+
 import exception.ServeFailedException;
 import javafx.application.Platform;
 
@@ -31,6 +35,7 @@ public class GameLogic {
 	}
 	public static void startGame() {
 		glass = new Glass();
+		System.out.println("start");
 	}
 	public static void runCountDownTimer(int pl) throws InterruptedException {
 		
@@ -58,5 +63,34 @@ public class GameLogic {
 	public static void callNextCustomer() {
 		
 		
+	}
+	public static Ingredient createIngredientFromName(String s){
+		switch(s) {
+			case "Coffee":
+				return new Beverage("Coffee");
+			case "Tea":
+				return new Beverage("Tea");
+			case "Juice":
+				return new Beverage("Juice");
+			case "Cocoa Paste":
+				return new Flavoring("Cocoa Paste");
+			case "Caramel":
+				return new Flavoring("Caramel");
+			case "Mint":
+				return new Flavoring("Mint");
+			case "Lemon":
+				return new Flavoring("Lemon");
+			case "Soda":
+				return new Flavoring("Soda");
+			case "Milk":
+				return new Flavoring("Milk");
+			default:
+				return null;
+		}
+	}
+	
+	public static void addIngredientToGlass(String name) {
+		Ingredient ingredient = createIngredientFromName(name);
+		glass.addIngredient(ingredient);
 	}
 }
