@@ -1,15 +1,35 @@
 package logic;
-
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import component.Beverage;
+import component.Flavoring;
+import component.Ingredient;
 
 public class ListOfCustomer {
 	
-	private ArrayList<Customer> CustomerList;
-	public ListOfCustomer(Mode mode) {
+	private static ArrayList<Customer> CustomerList;
+	
+	private static Beverage coffee = new Beverage("Coffee","Richly-flavored coffee made using complex processes suck as grinding and drip filtration.",1);
+	private static Beverage tea = new Beverage("Tea","High-quality tea leaves have been used to brew this tea. Has a rich fragrance.",1);
+	private static Beverage juice = new Beverage("Juice","Large and full orange have been hand-juiced to make this delicious sweet-and-sour extract.",1);
+	
+	private static Flavoring milk = new Flavoring("Milk","Milk brought in from specific supply channels. The mouthfeel is incredibly smooth, and the aftertaste is sweet.",1);
+	private static Flavoring cocoa = new Flavoring("Cocoa Paste","Processed from the cocoa fruit. Its unique aroma can be used to add a rich flavor to the drink.",1);
+	private static Flavoring caramel = new Flavoring("Caramel","This boiled syrup has a thick texture and rich sweetness.",1);
+	private static Flavoring lemon = new Flavoring("Lemon","This vibrantly colored fruit has an intense sourness that can produce some unexpected results.",1);
+	private static Flavoring mint = new Flavoring("Mint","Freshly picked leaves that can be used to add a cooling taste.",1);
+	private static Flavoring soda = new Flavoring("Soda","A liquid that bubbles over. It has no taste, but its mouthfeel packs a punch",1);
+	
+	
+	public static ArrayList<Customer> ListOfCustomer(Mode mode) {
 		if(mode.equals(Mode.EASY)) {
+			ArrayList<Ingredient> atn = new ArrayList(Arrays.asList(Ingredient.setCondense(coffee, 3)));
+			String atndes = "Coffee x 3";
 			
 		}else {
 			
 		}
+		return CustomerList;
 	}
 }

@@ -2,6 +2,7 @@ package logic;
 
 
 import java.util.Hashtable;
+import java.util.Optional;
 
 import component.Beverage;
 import component.Flavoring;
@@ -11,6 +12,9 @@ import container.Size;
 
 import exception.ServeFailedException;
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 
 public class GameLogic {
 
@@ -57,7 +61,23 @@ public class GameLogic {
 				System.out.print("Wrong Ingredient");
 			}
 		}catch(ServeFailedException e) {
-			e.printErrormessage();
+			//e.printErrormessage();
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("ServeFail");
+			
+			alert.setHeaderText(null);
+			
+			alert.setContentText(e.getMessage());
+			alert.getButtonTypes().clear();
+			
+			ButtonType ok = new ButtonType("ok");
+			alert.getButtonTypes().add(ok);
+			
+			Optional<ButtonType> option = alert.showAndWait();
+			
+			if(option.get() == ok) {
+				Platform.exit();
+			}
 		}
 	}
 	public static void callNextCustomer() {

@@ -12,6 +12,11 @@ public class Flavoring extends Ingredient{
 	public Flavoring(String name) {
 		super(name);
 	}
+	public static Flavoring setcondense(Flavoring flavoring,int concentration) {
+		Flavoring newFlavoring = flavoring;
+		newFlavoring.setConcentration(concentration);
+		return newFlavoring;
+	}
 	
 }
 

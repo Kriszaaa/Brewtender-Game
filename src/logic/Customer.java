@@ -14,6 +14,7 @@ public class Customer {
 		this.setDrink(drink);
 		this.setSize(size);
 	}
+	
 	public String getDescription() {
 		return description;
 	}

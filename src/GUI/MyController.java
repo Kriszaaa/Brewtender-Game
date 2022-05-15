@@ -21,6 +21,18 @@ public class MyController implements Initializable{
 		GameLogic.startGame();
 		startCountdown();
 	}
+	public void clear(ActionEvent e) {
+		GameLogic.clearGlass();
+	}
+	public void serve(ActionEvent e) {
+		
+	}
+	public void customerOrder(ActionEvent e) {
+		
+	}
+	public void newGame(ActionEvent e) {
+
+	}
 	
 	public void add(ActionEvent e) {
 		Button btn = (Button) e.getSource();

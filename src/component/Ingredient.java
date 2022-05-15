@@ -16,6 +16,15 @@ public class Ingredient {
 		this.setName(name);
 		this.setDescription("");
 	}
+	public static Ingredient setCondense(Ingredient ingredient,int concentration) {
+		Ingredient newIngredient = ingredient;
+		newIngredient.setConcentration(concentration);
+		return newIngredient;
+	}
+	
+	public void audio() {
+		
+	}
 	
 	public boolean checkSameIngredient(Ingredient i) {
 		if(this.getName().equals(i.getName()) && this.getConcentration() ==  i.getConcentration()) {
