@@ -3,11 +3,13 @@ package GUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import logic.GameLogic;
+import logic.Timer;
 
 public class MyController implements Initializable{
 	
@@ -17,6 +19,7 @@ public class MyController implements Initializable{
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
+		startCountdown();
 	}
 	
 	public void add(ActionEvent e) {
@@ -51,6 +54,29 @@ public class MyController implements Initializable{
 				break;
 		}
 			
+	}
+	
+	public void startCountdown(){
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					Timer timer = new Timer(5,0);
+					for(int i=1;i<=10;i++) {
+						
+						Thread.sleep(1000);
+						timer.decrementTimer(1);
+						//System.out.println(timer.toString());
+					}
+				} catch(Exception e) {
+					
+				}
+			}
+			
+		});
+		thread.start();
 	}
 	
 	@Override
