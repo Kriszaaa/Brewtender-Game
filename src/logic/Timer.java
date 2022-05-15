@@ -5,11 +5,33 @@ public class Timer {
 	private int seconds;
 	//private int ms;
 	
+	public int getMinute() {
+		return minute;
+	}
+
+
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
+
+
+	public int getSeconds() {
+		return seconds;
+	}
+
+
+
+	public void setSeconds(int seconds) {
+		this.seconds = seconds;
+	}
+
 	private boolean isStop;
 	
 	public Timer(int m, int s) {
-		this.minute = m;
-		this.seconds = s;
+		minute = m;
+		seconds = s;
 		//this.ms = ms;
 		
 		this.isStop = true;
@@ -21,12 +43,12 @@ public class Timer {
 		
 		if(isTimerEmpty()) {return;}
 		
-		this.seconds -= amount;
+		seconds -= amount;
 
-		while(this.seconds < 0) {
+		while(seconds < 0) {
 			if(isTimerEmpty()) { return;}
-			this.seconds+=60;
-			this.minute -= 1;	
+			seconds+=60;
+			minute -= 1;	
 			
 			
 		}
@@ -34,11 +56,11 @@ public class Timer {
 	}
 	
 	public boolean isTimerEmpty() {
-		return this.minute<=0 && this.seconds<=0 ;
+		return minute<=0 && seconds<=0 ;
 	}
 	
 	public String toString() {
-		return String.format("%02d:%02d",this.minute, this.seconds);
+		return String.format("%02d:%02d",minute, seconds);
 	}
 
 	public boolean isStop() {
