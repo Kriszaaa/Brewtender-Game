@@ -1,5 +1,6 @@
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -10,15 +11,33 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import logic.GameLogic;
 import logic.Timer;
 
 public class MyController implements Initializable{
+	
+	 private Stage stage;
+	 private Scene scene;
+	 private Parent root;
+	
+	
+	 
+	 public void switchToScene2(ActionEvent event) throws IOException {
+		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
+		  Stage stage = new Stage();
+		  stage.setTitle("Recipes");
+		  stage.setScene(new Scene(root, 450, 450));
+		  stage.show();
+		 }
 	
 	@FXML
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;

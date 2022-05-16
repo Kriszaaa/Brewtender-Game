@@ -13,11 +13,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="436.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MyController">
+<AnchorPane prefHeight="436.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MyController">
    <children>
       <Pane layoutX="5.0" layoutY="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.6000000000000227" AnchorPane.topAnchor="5.0">
          <children>
-          <Button fx:id="recipes" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" text="Recipes">
+          <Button fx:id="recipes" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#switchToScene2" text="Recipes">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
