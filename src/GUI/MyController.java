@@ -30,6 +30,13 @@ public class MyController implements Initializable{
 	 private Parent root;
 	
 	
+	 public void switchToScene1(ActionEvent event) throws IOException {
+		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+		 }
 	 
 	 public void switchToScene2(ActionEvent event) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
@@ -54,7 +61,8 @@ public class MyController implements Initializable{
 	@FXML
 	private Text milkNumberText,mintNumberText,lemonNumberText,sodaNumberText,cocoaNumberText,caramelNumberText;
 	
-
+	@FXML
+	private Button easyButton,hardButton;
 	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
