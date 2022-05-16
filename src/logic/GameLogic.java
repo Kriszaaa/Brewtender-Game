@@ -155,6 +155,6 @@ public class GameLogic {
 	}
 	public static void setglassSize(Size size) {
 		glass.setSize(size);
-		System.out.println(glass.getSize());
+		//System.out.println(glass.getSize());
 	}
 }

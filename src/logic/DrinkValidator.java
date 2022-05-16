@@ -13,8 +13,14 @@ public class DrinkValidator {
 	public static boolean checkDrink(Customer customer,Glass glass) throws ServeFailedException{
 		
 		ArrayList<Ingredient> customerdrink = customer.getDrink();
-		if(glass.getSize().equals(Size.EMPTY) || !glass.isServable()) {
-			throw new ServeFailedException("Serve Failed!!");
+		System.out.println(glass.getSize());
+		
+		if(glass.getSize().equals(Size.EMPTY) && !glass.isServable()) {
+			throw new ServeFailedException("Add at least 1 beverage and Fill your glass size!!");
+		}else if(!glass.getSize().equals(Size.EMPTY) && !glass.isServable()) {
+			throw new ServeFailedException("Add at least 1 beverage!!");
+		}else if(glass.getSize().equals(Size.EMPTY) && glass.isServable()) {
+			throw new ServeFailedException("Fill your glass size!!");
 		}else {
 			for(Ingredient i:customerdrink) {
 				boolean found = false;
