@@ -6,9 +6,8 @@ import java.util.Random;
 import component.Beverage;
 import component.Flavoring;
 import component.Ingredient;
-import component.Recipe;
-import component.RecipeStorage;
-import component.RecipeStorage2;
+import component.recipe.EasyRecipe;
+import component.recipe.HardRecipe;
 import container.Size;
 
 public class ListOfCustomer {
@@ -39,9 +38,9 @@ public class ListOfCustomer {
 			int randnum;
 			
 			for(int i=0;i<20;i++) {
-				randnum = rand.nextInt(RecipeStorage.getAllrecipes().size());
-				rand_des = RecipeStorage.getAllrecipes().get(randnum).getDescription();
-				rand_rep = RecipeStorage.getAllrecipes().get(randnum).getListofingredient();
+				randnum = rand.nextInt(EasyRecipe.getAllrecipes().size());
+				rand_des = EasyRecipe.getAllrecipes().get(randnum).getDescription();
+				rand_rep = EasyRecipe.getAllrecipes().get(randnum).getListofingredient();
 				customerList.add(new Customer(rand_des,rand_rep,randomSize()));
 			}
 			setCustomerList(customerList);
@@ -54,9 +53,9 @@ public class ListOfCustomer {
 			int randnum;
 			
 			for(int i=0;i<20;i++) {
-				randnum = rand.nextInt(RecipeStorage2.getAllrecipes().size());
-				rand_des = RecipeStorage2.getAllrecipes().get(randnum).getDescription();
-				rand_rep = RecipeStorage2.getAllrecipes().get(randnum).getListofingredient();
+				randnum = rand.nextInt(HardRecipe.getAllrecipes().size());
+				rand_des = HardRecipe.getAllrecipes().get(randnum).getDescription();
+				rand_rep = HardRecipe.getAllrecipes().get(randnum).getListofingredient();
 				customerList.add(new Customer(rand_des,rand_rep,randomSize()));
 			}
 			setCustomerList(customerList);

@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.GameLogic;
+import logic.Mode;
 import logic.Timer;
 
 public class MyController implements Initializable{
@@ -31,12 +32,23 @@ public class MyController implements Initializable{
 	
 	
 	 public void switchToScene1(ActionEvent event) throws IOException {
+		 
+		 
 		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
 		  stage.setScene(scene);
 		  stage.show();
-		 }
+		  Button btn = (Button) event.getSource();
+		  switch(btn.getId()) {
+			case "easyButton":
+				GameLogic.chooseMode(Mode.EASY);
+				break;
+			case "hardButton":
+				GameLogic.chooseMode(Mode.HARD);
+				break;
+		  }
+	 }
 	 
 	 public void switchToScene2(ActionEvent event) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
@@ -44,7 +56,7 @@ public class MyController implements Initializable{
 		  stage.setTitle("Recipes");
 		  stage.setScene(new Scene(root, 450, 450));
 		  stage.show();
-		 }
+	}
 	
 	@FXML
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
@@ -105,9 +117,7 @@ public class MyController implements Initializable{
 			clear(e);
 		}
 	}
-	public void customerOrder(ActionEvent e) {
-		
-	}
+	
 	public void newGame(ActionEvent e) {
 		
 		timer.setMinute(5);

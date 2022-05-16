@@ -1,6 +1,8 @@
-package component;
+package component.recipe;
 
 import java.util.ArrayList;
+
+import component.Ingredient;
 
 public class Recipe {
 	

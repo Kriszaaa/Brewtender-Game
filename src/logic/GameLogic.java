@@ -10,7 +10,8 @@ import java.util.Random;
 import component.Beverage;
 import component.Flavoring;
 import component.Ingredient;
-import component.RecipeStorage;
+import component.recipe.EasyRecipe;
+import component.recipe.HardRecipe;
 import container.Glass;
 import container.Size;
 
@@ -42,12 +43,18 @@ public class GameLogic {
 	public static void startGame() {
 		glass = new Glass();
 		System.out.println("start");
+		System.out.println(mode);
 		startRunOrder();
 	}
 	public static void startRunOrder() {
 		
-		RecipeStorage.createRecipes();
-		ListOfCustomer.generateCustomerList(Mode.EASY);
+		
+		if(mode.equals(Mode.EASY)) {
+			EasyRecipe.createRecipes();
+		}else if(mode.equals(Mode.HARD)) {
+			HardRecipe.createRecipes();
+		}
+		ListOfCustomer.generateCustomerList(mode);
 		CustomerList = ListOfCustomer.getCustomerList();
 		presentcustomer = CustomerList.get(orderrunner);
 		/*for(int i = 0;i<20;i++) {
@@ -62,8 +69,8 @@ public class GameLogic {
 		orderrunner += 1;
 		presentcustomer = CustomerList.get(orderrunner);
 	}
-	public static void chooseMode() {
-		
+	public static void chooseMode(Mode choosemode) {
+		mode = choosemode;
 	}
 	public static void endGame() {
 		
