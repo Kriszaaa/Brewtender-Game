@@ -23,19 +23,20 @@ public class MyController implements Initializable{
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
 	
 	@FXML
-	private Button StartButton,NewGameButton,serveButton;
+	private Button StartButton,NewGameButton,serveButton,clearButton;
 	
 	@FXML
 	private Button small,medium,large;
 	
 	@FXML
-	private Text timerText;
+	private Text timerText,orderText;
 	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
+		orderText.setText(GameLogic.getCustomerOrder());
 		startCountdown();
 		exit = false;
 	}
@@ -43,7 +44,9 @@ public class MyController implements Initializable{
 		GameLogic.clearGlass();
 	}
 	public void serve(ActionEvent e) {
-		GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer());
+		if(GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer())) {
+			orderText.setText(GameLogic.getCustomerOrder());
+		}
 	}
 	public void customerOrder(ActionEvent e) {
 		

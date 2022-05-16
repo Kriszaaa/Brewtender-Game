@@ -63,12 +63,13 @@ public class GameLogic {
 	public static void endGame() {
 		
 	}
-	public static void Serve(Glass glass,Customer customer) {
+	public static boolean Serve(Glass glass,Customer customer) {
 		
 		System.out.println("serve");
 		try {
 			if(DrinkValidator.checkDrink(customer,glass)) {
 				callNextCustomer();
+				return true;
 			}else {
 				System.out.print("Wrong Ingredient");
 				
@@ -91,6 +92,7 @@ public class GameLogic {
 				if(option.get() == tryagain) {
 					alert.close();
 				}
+				return false;
 			}
 		}catch(ServeFailedException e) {
 			//e.printErrormessage();
@@ -111,6 +113,7 @@ public class GameLogic {
 			if(option.get() == ok) {
 				alert.close();
 			}
+			return false;
 		}
 	}
 	public static Ingredient createIngredientFromName(String s){
@@ -138,6 +141,7 @@ public class GameLogic {
 		}
 	}
 	public static void clearGlass() {
+		System.out.println("clear");
 		glass = new Glass();
 	}
 	
@@ -156,5 +160,8 @@ public class GameLogic {
 	public static void setglassSize(Size size) {
 		glass.setSize(size);
 		//System.out.println(glass.getSize());
+	}
+	public static String getCustomerOrder() {
+		return (presentcustomer.getDescription()+" "+presentcustomer.getSize());
 	}
 }

@@ -30,7 +30,7 @@
       </Pane>
       <Pane layoutX="4.800000190734863" layoutY="44.79999923706055" prefHeight="58.0" prefWidth="389.0" style="-fx-background-color: #90EE90;" AnchorPane.leftAnchor="4.800000190734863" AnchorPane.rightAnchor="97.59999980926511" AnchorPane.topAnchor="44.79999923706055">
          <children>
-            <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order" />
+            <Text fx:id="orderText" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order" />
          </children>
       </Pane>
       <TitledPane layoutX="5.0" layoutY="236.0" prefHeight="248.0" prefWidth="314.0" text="Select Flavorings" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="236.0">
@@ -170,7 +170,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="18.0" layoutY="279.0" mnemonicParsing="false" style="-fx-background-color: red;" text="clear" textFill="WHITE">
+            <Button fx:id="clearButton" layoutX="18.0" layoutY="279.0" mnemonicParsing="false" onAction="#clear" style="-fx-background-color: red;" text="clear" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
