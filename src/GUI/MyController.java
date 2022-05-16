@@ -75,6 +75,7 @@ public class MyController implements Initializable{
 		if(GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer())) {
 			orderText.setText(GameLogic.getCustomerOrder());
 		}
+		clear(e);
 	}
 	public void customerOrder(ActionEvent e) {
 		
