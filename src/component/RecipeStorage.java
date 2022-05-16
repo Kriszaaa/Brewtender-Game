@@ -6,6 +6,7 @@ import java.util.Arrays;
 import logic.Customer;
 
 public class RecipeStorage {
+	
 	private static ArrayList<Customer> CustomerList;
 	
 	private static Beverage coffee = new Beverage("Coffee","Richly-flavored coffee made using complex processes suck as grinding and drip filtration.",1);
@@ -25,7 +26,7 @@ public class RecipeStorage {
 	private static ArrayList<Ingredient> fr = new ArrayList(Arrays.asList(Beverage.setCondense(coffee, 2),soda));
 	private static ArrayList<Ingredient> ge = new ArrayList(Arrays.asList(Beverage.setCondense(coffee, 2),milk));
 	private static ArrayList<Ingredient> ma = new ArrayList(Arrays.asList(coffee,milk,cocoa));
-	private static ArrayList<Ingredient> nss = new ArrayList(Arrays.asList(Beverage.setCondense(milk, 2),coffee));
+	private static ArrayList<Ingredient> nss = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 2),coffee));
 	private static ArrayList<Ingredient> sn = new ArrayList(Arrays.asList(coffee,tea,milk));
 	
 	private static ArrayList<Ingredient> bb = new ArrayList(Arrays.asList(juice,soda,mint));
@@ -33,10 +34,10 @@ public class RecipeStorage {
 	private static ArrayList<Ingredient> dd = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 2),soda));
 	private static ArrayList<Ingredient> gvs = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 3)));
 	private static ArrayList<Ingredient> sck = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 2),milk));
-	private static ArrayList<Ingredient> scl = new ArrayList(Arrays.asList(Beverage.setCondense(milk, 3),juice));
+	private static ArrayList<Ingredient> scl = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 3),juice));
 	
 	private static ArrayList<Ingredient> bw = new ArrayList(Arrays.asList(tea,milk,mint));
-	private static ArrayList<Ingredient> b = new ArrayList(Arrays.asList(Beverage.setCondense(milk, 2),tea));
+	private static ArrayList<Ingredient> b = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 2),tea));
 	private static ArrayList<Ingredient> d = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 2),tea));
 	private static ArrayList<Ingredient> lc = new ArrayList(Arrays.asList(tea,milk,cocoa));
 	private static ArrayList<Ingredient> lp = new ArrayList(Arrays.asList(tea,milk,caramel));
@@ -98,6 +99,9 @@ public class RecipeStorage {
 	private static ArrayList<Recipe> allrecipes;
 	
 	public static void createRecipes() {
+		
+		//System.out.println(atn.get(0).getConcentration()+" "+atn.get(0).getName());
+		
 		
 		Recipe atn_reps = new Recipe(atn_des,atn);
 		Recipe cp_reps = new Recipe(cp_des,cp);

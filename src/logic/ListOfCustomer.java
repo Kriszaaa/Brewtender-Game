@@ -8,12 +8,14 @@ import component.Flavoring;
 import component.Ingredient;
 import component.Recipe;
 import component.RecipeStorage;
+import component.RecipeStorage2;
 import container.Size;
 
 public class ListOfCustomer {
 	
 	private static ArrayList<Customer> CustomerList;
 	
+	/*
 	private static Beverage coffee = new Beverage("Coffee","Richly-flavored coffee made using complex processes suck as grinding and drip filtration.",1);
 	private static Beverage tea = new Beverage("Tea","High-quality tea leaves have been used to brew this tea. Has a rich fragrance.",1);
 	private static Beverage juice = new Beverage("Juice","Large and full orange have been hand-juiced to make this delicious sweet-and-sour extract.",1);
@@ -24,7 +26,7 @@ public class ListOfCustomer {
 	private static Flavoring lemon = new Flavoring("Lemon","This vibrantly colored fruit has an intense sourness that can produce some unexpected results.",1);
 	private static Flavoring mint = new Flavoring("Mint","Freshly picked leaves that can be used to add a cooling taste.",1);
 	private static Flavoring soda = new Flavoring("Soda","A liquid that bubbles over. It has no taste, but its mouthfeel packs a punch",1);
-	
+	*/
 	
 	
 	public static void generateCustomerList(Mode mode) {
@@ -35,6 +37,7 @@ public class ListOfCustomer {
 			ArrayList<Ingredient> rand_rep;
 			Random rand = new Random();
 			int randnum;
+			
 			for(int i=0;i<20;i++) {
 				randnum = rand.nextInt(RecipeStorage.getAllrecipes().size());
 				rand_des = RecipeStorage.getAllrecipes().get(randnum).getDescription();
@@ -44,6 +47,19 @@ public class ListOfCustomer {
 			setCustomerList(customerList);
 		}else {
 			
+			ArrayList<Customer> customerList = new ArrayList<Customer>();
+			String rand_des;
+			ArrayList<Ingredient> rand_rep;
+			Random rand = new Random();
+			int randnum;
+			
+			for(int i=0;i<20;i++) {
+				randnum = rand.nextInt(RecipeStorage2.getAllrecipes().size());
+				rand_des = RecipeStorage2.getAllrecipes().get(randnum).getDescription();
+				rand_rep = RecipeStorage2.getAllrecipes().get(randnum).getListofingredient();
+				customerList.add(new Customer(rand_des,rand_rep,randomSize()));
+			}
+			setCustomerList(customerList);
 		}
 	}
 	

@@ -61,6 +61,7 @@ public class MyController implements Initializable{
 		small.setStyle(null);
 		medium.setStyle(null);
 		large.setStyle(null);
+		
 		coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
 		teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
 		juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
@@ -138,54 +139,54 @@ public class MyController implements Initializable{
 	public void add(ActionEvent e) {
 		Button btn = (Button) e.getSource();
 		if (GameLogic.getGlass().addable()) {
-		switch(btn.getId()) {
-			case "coffee":
-				GameLogic.addIngredientToGlass("Coffee");
-				coffee.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
-				break;
-			case "tea":
-				GameLogic.addIngredientToGlass("Tea");
-				tea.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
-				break;
-				
-			case "juice":
-				GameLogic.addIngredientToGlass("Juice");
-				juice.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
-				break;
-			case "milk":
-				GameLogic.addIngredientToGlass("Milk");
-				milk.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				milkNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Milk")));
-				break;
-			case "mint":
-				GameLogic.addIngredientToGlass("Mint");
-				mint.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
-				break;
-			case "lemon":
-				GameLogic.addIngredientToGlass("Lemon");
-				lemon.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
-				break;
-			case "soda":
-				GameLogic.addIngredientToGlass("Soda");
-				soda.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
-				break;
-			case "cocoa":
-				GameLogic.addIngredientToGlass("Cocoa Paste");
-				cocoa.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
-				break;
-			case "caramel":
-				GameLogic.addIngredientToGlass("Caramel");
-				caramel.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
-				break;
-		}
+			switch(btn.getId()) {
+				case "coffee":
+					GameLogic.addIngredientToGlass("Coffee");
+					coffee.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
+					break;
+				case "tea":
+					GameLogic.addIngredientToGlass("Tea");
+					tea.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
+					break;
+					
+				case "juice":
+					GameLogic.addIngredientToGlass("Juice");
+					juice.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
+					break;
+				case "milk":
+					GameLogic.addIngredientToGlass("Milk");
+					milk.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					milkNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Milk")));
+					break;
+				case "mint":
+					GameLogic.addIngredientToGlass("Mint");
+					mint.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
+					break;
+				case "lemon":
+					GameLogic.addIngredientToGlass("Lemon");
+					lemon.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
+					break;
+				case "soda":
+					GameLogic.addIngredientToGlass("Soda");
+					soda.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
+					break;
+				case "cocoa":
+					GameLogic.addIngredientToGlass("Cocoa Paste");
+					cocoa.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
+					break;
+				case "caramel":
+					GameLogic.addIngredientToGlass("Caramel");
+					caramel.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
+					caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
+					break;
+			}
 		}
 			
 	}

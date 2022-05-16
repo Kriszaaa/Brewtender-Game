@@ -49,7 +49,10 @@ public class GameLogic {
 		CustomerList = ListOfCustomer.getCustomerList();
 		presentcustomer = CustomerList.get(orderrunner);
 		/*for(int i = 0;i<20;i++) {
-			System.out.println(CustomerList.get(i).getDescription()+" "+CustomerList.get(i).getRecipes()+" "+CustomerList.get(i).getSize());
+			//System.out.println(CustomerList.get(i).getDescription()+" "+CustomerList.get(i).getRecipes()+" "+CustomerList.get(i).getSize());
+			for(Ingredient j:CustomerList.get(i).getDrink()) {
+				System.out.print(j.getName()+" "+j.getConcentration()+"\n");
+			}
 		}*/
 	}
 	public static void callNextCustomer() {
@@ -66,12 +69,26 @@ public class GameLogic {
 	public static boolean Serve(Glass glass,Customer customer) {
 		
 		System.out.println("serve");
+		System.out.println(customer.getRecipes());
 		try {
 			if(DrinkValidator.checkDrink(customer,glass)) {
 				callNextCustomer();
 				return true;
 			}else {
 				System.out.print("Wrong Ingredient");
+				
+				//test
+				System.out.println();
+				for(Ingredient i:glass.getDrink()) {
+					System.out.print(i.getName()+" "+i.getConcentration()+"\n");
+				}
+				System.out.println("Customer");
+				for(Ingredient i:customer.getDrink()) {
+					System.out.print(i.getName()+" "+i.getConcentration()+"\n");
+				}
+				//test
+				
+				
 				trytimes -= 1;
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Wrong Ingredients");
