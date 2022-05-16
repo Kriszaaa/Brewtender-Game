@@ -68,7 +68,7 @@ public class MyController implements Initializable{
 		mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
 		lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
 		sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
-		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa")));
+		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
 		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
 	}
 	public void serve(ActionEvent e) {
@@ -107,7 +107,7 @@ public class MyController implements Initializable{
 		mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
 		lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
 		sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
-		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa")));
+		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
 		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
 		
 	}
@@ -177,7 +177,7 @@ public class MyController implements Initializable{
 			case "cocoa":
 				GameLogic.addIngredientToGlass("Cocoa Paste");
 				cocoa.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
-				cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa")));
+				cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
 				break;
 			case "caramel":
 				GameLogic.addIngredientToGlass("Caramel");
