@@ -12,6 +12,7 @@ import component.Flavoring;
 import component.Ingredient;
 import component.recipe.EasyRecipe;
 import component.recipe.HardRecipe;
+import component.recipe.Recipe;
 import container.Glass;
 import container.Size;
 
@@ -51,8 +52,29 @@ public class GameLogic {
 		
 		if(mode.equals(Mode.EASY)) {
 			EasyRecipe.createRecipes();
+			//test
+			for(Recipe i:EasyRecipe.getAllrecipes()) {
+				System.out.println(i.getDescription());
+				for (Ingredient j:i.getListofingredient()) {
+					System.out.print(j.getName()+" ");
+					System.out.print(j.getConcentration()+" ");
+				}
+				System.out.println();
+			}
+			
+			
+			
 		}else if(mode.equals(Mode.HARD)) {
 			HardRecipe.createRecipes();
+			//test
+			for(Recipe i:HardRecipe.getAllrecipes()) {
+				System.out.println(i.getDescription());
+				for (Ingredient j:i.getListofingredient()) {
+					System.out.print(j.getName()+" ");
+					System.out.print(j.getConcentration()+" ");
+				}
+				System.out.println();
+			}
 		}
 		ListOfCustomer.generateCustomerList(mode);
 		CustomerList = ListOfCustomer.getCustomerList();

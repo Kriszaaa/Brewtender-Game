@@ -17,11 +17,11 @@ public class Ingredient {
 		this.setDescription("");
 		this.setConcentration(concentration);
 	}
-	/*public static Ingredient setCondense(Ingredient ingredient,int concentration) {
+	public static Ingredient setCondense(Ingredient ingredient,int concentration) {
 		Ingredient newIngredient = ingredient;
 		newIngredient.setConcentration(concentration);
 		return newIngredient;
-	}*/
+	}
 	
 	public void audio() {
 		

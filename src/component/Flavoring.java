@@ -13,7 +13,7 @@ public class Flavoring extends Ingredient{
 		super(name);
 	}
 	public static Flavoring setCondense(Flavoring flavoring,int concentration) {
-		Flavoring newFlavoring = flavoring;
+		Flavoring newFlavoring = new Flavoring(flavoring.getName());
 		newFlavoring.setConcentration(concentration);
 		return newFlavoring;
 	}

@@ -16,8 +16,6 @@ public class Beverage extends Ingredient implements Edible{
 	public static Beverage setCondense(Beverage beverage,int concentration) {
 		Beverage newBeverage = new Beverage(beverage.getName());
 		newBeverage.setConcentration(concentration);
-		
-		
 		return newBeverage;
 	}
 	
