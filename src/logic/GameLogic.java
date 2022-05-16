@@ -172,6 +172,15 @@ public class GameLogic {
 	public static Customer getPresentcustomer() {
 		return presentcustomer;
 	}
+	public static int getConcentrationWithId(String s) {
+		
+		for(Ingredient i:glass.getDrink()) {
+			if(s.equals(i.getName())) {
+				return i.getConcentration();
+			}
+		}
+		return 0;
+	}
 
 	public static void addIngredientToGlass(String name) {
 		Ingredient ingredient = createIngredientFromName(name);
