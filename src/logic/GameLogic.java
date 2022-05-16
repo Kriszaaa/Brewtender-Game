@@ -241,6 +241,6 @@ public class GameLogic {
 		//System.out.println(glass.getSize());
 	}
 	public static String getCustomerOrder() {
-		return (presentcustomer.getDescription()+" "+presentcustomer.getSize());
+		return (presentcustomer.getDescription()+" , Size "+presentcustomer.getSize());
 	}
 }

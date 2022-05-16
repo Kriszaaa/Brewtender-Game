@@ -6,7 +6,7 @@ public class Ingredient {
 	
 	private String name;
 	private String description;
-	private int concentration = 1;
+	protected int concentration = 1;
 	
 	public Ingredient(String name,String description) {
 		this.setName(name);
