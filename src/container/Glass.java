@@ -9,7 +9,7 @@ import component.Edible;
 import component.Flavoring;
 import component.Ingredient;
 
-public class Glass {
+public class Glass implements Addable{
 	
 	private ArrayList<Ingredient> drink;
 	private int MaxIngredient = 5;
@@ -73,6 +73,10 @@ public class Glass {
 		}
 		return false;
 	}
+	public boolean addable() {
+		return this.getCapacity() < this.MaxIngredient;
+	}
+	
 	public Size getSize() {
 		return size;
 	}

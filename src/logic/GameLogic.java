@@ -72,27 +72,47 @@ public class GameLogic {
 				return true;
 			}else {
 				System.out.print("Wrong Ingredient");
-				
+				trytimes -= 1;
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Wrong Ingredients");
 				
 				alert.setHeaderText(null);
-				Random rand = new Random();
-				int randnum = rand.nextInt(3);
-				String errortext = ErrorText.get(randnum);
-				alert.setContentText(errortext);
-				alert.getButtonTypes().clear();
-				
-				ButtonType tryagain = new ButtonType("Try("+trytimes+")");
-				trytimes -= 1;
-				alert.getButtonTypes().add(tryagain);
-				
-				Optional<ButtonType> option = alert.showAndWait();
-				
-				if(option.get() == tryagain) {
-					alert.close();
+				ButtonType tryagain = new ButtonType("");
+				if(trytimes <= 0) {
+					String errortext = "Customer get upset. Why you so noob man.";
+					alert.setContentText(errortext);
+					alert.getButtonTypes().clear();
+					
+					tryagain = new ButtonType("Sad");
+					alert.getButtonTypes().add(tryagain);
+					
+					Optional<ButtonType> option = alert.showAndWait();
+					
+					if(option.get() == tryagain) {
+						alert.close();
+					}
+					callNextCustomer();
+					return true;
+				}else {
+					//random encourage sentences
+					Random rand = new Random();
+					int randnum = rand.nextInt(3);
+					String errortext = ErrorText.get(randnum);
+					alert.setContentText(errortext);
+					alert.getButtonTypes().clear();
+					
+					//Text on Button
+					tryagain = new ButtonType("Try("+trytimes+")");
+					alert.getButtonTypes().add(tryagain);
+					
+					Optional<ButtonType> option = alert.showAndWait();
+					
+					if(option.get() == tryagain) {
+						alert.close();
+					}
+					return false;
 				}
-				return false;
+				
 			}
 		}catch(ServeFailedException e) {
 			//e.printErrormessage();
