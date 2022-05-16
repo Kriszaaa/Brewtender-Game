@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="436.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MyController">
    <children>
@@ -37,7 +38,7 @@
          <content>
             <AnchorPane>
                <children>
-                  <Button fx:id="milk" layoutX="4.800000190734863" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="milk" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +47,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="caramel" layoutX="95.19999694824219" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="caramel" layoutX="104.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -55,7 +56,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="cocoa" layoutX="4.800000190734863" layoutY="134.39999389648438" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="cocoa" layoutX="14.0" layoutY="132.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -64,7 +65,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="soda" layoutX="95.19999694824219" layoutY="133.60000610351562" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="soda" layoutX="104.0" layoutY="132.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -73,7 +74,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="mint" alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="25.600000381469727" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="mint" alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="23.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -82,7 +83,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="lemon" alignment="CENTER" contentDisplay="CENTER" layoutX="185.60000610351562" layoutY="134.39999389648438" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
+                  <Button fx:id="lemon" alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="132.0" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
                         <ImageView fitHeight="59.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -91,6 +92,60 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <TextFlow layoutX="80.0" layoutY="24.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="milkNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="262.0" layoutY="24.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="mintNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="171.0" layoutY="24.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="caramelNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="262.0" layoutY="132.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="lemonNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="171.0" layoutY="132.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="sodaNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="80.0" layoutY="132.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="cocoaNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
                </children>
             </AnchorPane>
          </content>
@@ -129,7 +184,7 @@
         <content>
             <AnchorPane>
                <children>
-                  <Button fx:id="coffee" layoutY="10.0" mnemonicParsing="false" onAction="#add">
+                  <Button fx:id="coffee" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -138,7 +193,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="tea" layoutX="91.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
+                  <Button fx:id="tea" layoutX="105.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -147,7 +202,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="juice" layoutX="182.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
+                  <Button fx:id="juice" layoutX="196.0" layoutY="10.0" mnemonicParsing="false" onAction="#add">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="66.0" pickOnBounds="true">
                            <image>
@@ -156,7 +211,37 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <TextFlow layoutX="84.0" layoutY="10.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="coffeeNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="174.0" layoutY="10.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="teaNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <TextFlow layoutX="263.0" layoutY="10.0" prefHeight="24.0" prefWidth="14.0" style="-fx-background-color: lime;" textAlignment="CENTER">
+                     <children>
+                        <Text fx:id="juiceNumberText" fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="32.903076171875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </AnchorPane>
         </content>
          <font>
