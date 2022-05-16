@@ -74,7 +74,7 @@ public class Glass implements Addable{
 		return false;
 	}
 	public boolean addable() {
-		return this.getCapacity() <= this.MaxIngredient;
+		return this.getCapacity() != this.MaxIngredient;
 	}
 	
 	public Size getSize() {

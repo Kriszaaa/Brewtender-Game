@@ -23,17 +23,19 @@ import javafx.scene.control.Alert.AlertType;
 public class GameLogic {
 
 	private static Timer playerTimer;
-	private static int playerScore;
+	private static int playerScore = 0;
+	private static int MinusScore = 0;
+	private static int trytimes = 3;
+	private static int orderrunner = 0;
+	
 	
 	private static Glass glass;
 	private static ArrayList<Customer> CustomerList;
-	private String errorText = "";
 	private static Mode mode;
-	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("","",""));
-	private static int trytimes = 3;
-	private static int orderrunner = 0;
+	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("Noob.","Is this the best you can do??","So embarassing."));
 	private static Customer presentcustomer;
-			
+	
+	private String errorText = "";
 	public static void selectMode(Mode choosenMode) {
 		mode = choosenMode;
 	}
@@ -69,10 +71,11 @@ public class GameLogic {
 	public static boolean Serve(Glass glass,Customer customer) {
 		
 		System.out.println("serve");
-		System.out.println(customer.getRecipes());
 		try {
 			if(DrinkValidator.checkDrink(customer,glass)) {
 				callNextCustomer();
+				playerScore += 500 - MinusScore;
+				MinusScore = 0;
 				return true;
 			}else {
 				System.out.print("Wrong Ingredient");
@@ -111,6 +114,7 @@ public class GameLogic {
 					callNextCustomer();
 					return true;
 				}else {
+					MinusScore += 100;
 					//random encourage sentences
 					Random rand = new Random();
 					int randnum = rand.nextInt(3);
