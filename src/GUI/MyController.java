@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import component.recipe.EasyRecipe;
+import component.recipe.RecipeStorage;
 import container.Glass;
 import container.Size;
 import javafx.animation.Animation;
@@ -17,6 +19,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,6 +33,29 @@ public class MyController implements Initializable{
 	 private Scene scene;
 	 private Parent root;
 	
+	@FXML
+	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
+	
+	@FXML
+	private Button StartButton,NewGameButton,serveButton,clearButton;
+	
+	@FXML
+	private Button small,medium,large;
+	
+	@FXML
+	private Text timerText,orderText,coffeeNumberText,teaNumberText,juiceNumberText;
+	
+	@FXML
+	private Text milkNumberText,mintNumberText,lemonNumberText,sodaNumberText,cocoaNumberText,caramelNumberText;
+	
+	@FXML
+	private Button easyButton,hardButton;
+	
+	@FXML
+	private TableColumn<?, ?> menuList;
+	
+	Timer timer = new Timer(5,0);
+	static volatile boolean exit = false;
 	
 	 public void switchToScene1(ActionEvent event) throws IOException {
 		 
@@ -57,27 +83,6 @@ public class MyController implements Initializable{
 		  stage.setScene(new Scene(root, 450, 450));
 		  stage.show();
 	}
-	
-	@FXML
-	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
-	
-	@FXML
-	private Button StartButton,NewGameButton,serveButton,clearButton;
-	
-	@FXML
-	private Button small,medium,large;
-	
-	@FXML
-	private Text timerText,orderText,coffeeNumberText,teaNumberText,juiceNumberText;
-	
-	@FXML
-	private Text milkNumberText,mintNumberText,lemonNumberText,sodaNumberText,cocoaNumberText,caramelNumberText;
-	
-	@FXML
-	private Button easyButton,hardButton;
-	
-	Timer timer = new Timer(5,0);
-	static volatile boolean exit = false;
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
