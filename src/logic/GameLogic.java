@@ -140,6 +140,7 @@ public class GameLogic {
 					if(option.get() == tryagain) {
 						alert.close();
 					}
+					MinusScore = 0;
 					callNextCustomer();
 					return true;
 				}else {
@@ -231,16 +232,18 @@ public class GameLogic {
 		}
 		return 0;
 	}
-
+	
 	public static void addIngredientToGlass(String name) {
 		Ingredient ingredient = createIngredientFromName(name);
 		glass.addIngredient(ingredient);
 	}
 	public static void setglassSize(Size size) {
 		glass.setSize(size);
-		//System.out.println(glass.getSize());
 	}
 	public static String getCustomerOrder() {
 		return (presentcustomer.getDescription()+" , Size "+presentcustomer.getSize());
+	}
+	public static void setZeroScore() {
+		playerScore = 0;
 	}
 }
