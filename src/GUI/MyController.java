@@ -241,21 +241,21 @@ public class MyController implements Initializable{
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
+				while(!exit) {
 					try {
 						timer.setMinute(5);
 						timer.setSeconds(0);
 						for(int i=1;i<=300;i++) {
-							while(!exit) {
 							
 							timer.decrementTimer(1);
 							timerText.setText(timer.toString());
 							Thread.sleep(1000);
 							//System.out.println(timer.toString());
-							}
 						}
 					} catch(Exception e) {
 						
 					}
+				}
 			
 			}
 		});
