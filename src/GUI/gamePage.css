@@ -19,11 +19,32 @@
 }
 
 .button{
-	-fx-background-color:  #6E470B;
+	-fx-background-color:  #966F33 ;
 	-fx-background-radius: 10;
-	-fx-border-width: 3;
-	-fx-border-color: #966F33;
+
+	
 	-fx-border-radius: 5;
 
 	
 }
+#startButton{
+	
+}
+#clearButton{
+	
+}
+
+#orderBar{
+	-fx-background-color:  #966F33 ;
+	-fx-background-radius: 10;
+	-fx-border-width: 3;
+	-fx-border-color:#6E470B;
+	-fx-border-radius: 5;
+}
+
+
+#selectBeverageBar{
+	
+	-fx-text-fill:black;
+}
+
