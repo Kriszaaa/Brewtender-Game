@@ -1,11 +1,11 @@
  package logic;
 
 public class Timer {
-	private int minute;
-	private int seconds;
+	private static int minute;
+	private static int seconds;
 	//private int ms;
 	
-	public int getMinute() {
+	public static int getMinute() {
 		return minute;
 	}
 
@@ -17,7 +17,7 @@ public class Timer {
 
 
 
-	public int getSeconds() {
+	public static int getSeconds() {
 		return seconds;
 	}
 

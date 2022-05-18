@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -80,6 +81,7 @@ public class MyController implements Initializable{
 	
 	@FXML
 	private AnchorPane achorPane;
+	
 	
 	
 	Timer timer = new Timer(5,0);
@@ -206,6 +208,8 @@ public class MyController implements Initializable{
 		}
 	}
 	public void add(ActionEvent e) {
+		
+		coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
 		Button btn = (Button) e.getSource();
 		if (GameLogic.getGlass().addable()) {
 			switch(btn.getId()) {
@@ -304,8 +308,8 @@ public class MyController implements Initializable{
 				while(!exit) {
 					try {
 						timer.setMinute(0);
-						timer.setSeconds(20);
-							for(int i=1;i<=20;i++) {
+						timer.setSeconds(5);
+							for(int i=1;i<=5;i++) {
 								if(!exit) {
 								timer.decrementTimer(1);
 								timerText.setText(timer.toString());
@@ -326,17 +330,19 @@ public class MyController implements Initializable{
 		Thread thread2 = new Thread(() ->{
 			try {
 				thread.join();
-				Platform.runLater(new Runnable() {
-					@Override
-					public void run() {
-						try {
-						
-							switchToScoreScene(exit);
-						}catch(IOException e) {
-							e.printStackTrace();
+				if(Timer.getMinute()<=0 && Timer.getSeconds()<= 0) {
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							try {
+							
+								switchToScoreScene(exit);
+							}catch(IOException e) {
+								e.printStackTrace();
+							}
 						}
-					}
-				});
+					});
+				}
 			}catch(Exception e) {
 				
 			}
