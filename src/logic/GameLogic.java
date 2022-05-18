@@ -94,6 +94,9 @@ public class GameLogic {
 	public static void chooseMode(Mode choosemode) {
 		mode = choosemode;
 	}
+	public static int getScore() {
+		return playerScore;
+	}
 	public static void endGame() {
 
 	}

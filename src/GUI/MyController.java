@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.imageio.ImageIO;
+
 import component.recipe.EasyRecipe;
 import component.recipe.RecipeStorage;
 import container.Glass;
@@ -21,10 +23,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import logic.GameLogic;
+import logic.GradingScore;
 import logic.Mode;
 import logic.Timer;
 
@@ -58,6 +69,11 @@ public class MyController implements Initializable{
 	@FXML
 	private Button newGameBut, quitBut;
 	
+	@FXML
+	private ImageView background;
+	
+	@FXML
+	private AnchorPane achorPane;
 	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
@@ -92,12 +108,14 @@ public class MyController implements Initializable{
 	 public void switchToScoreScene(boolean end) throws IOException {
 		    if (end == true) {
 		        Parent root = FXMLLoader.load(getClass().getResource("scorePage.fxml"));
+		        //root.setStyle("-fx-background-color: images/goobjob.jpg");
 		        Scene SceneMenu = new Scene(root);
-		        Stage stage = (Stage)easyButton.getScene().getWindow();
+		        Stage stage = (Stage)StartButton.getScene().getWindow();
 		        stage.setScene(SceneMenu);
 		        stage.show();
 		    }
-		}
+	}
+	 
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
@@ -288,8 +306,8 @@ public class MyController implements Initializable{
 					@Override
 					public void run() {
 						try {
+						
 							switchToScoreScene(exit);
-						//System.out.println("pppp");
 						}catch(IOException e) {
 							e.printStackTrace();
 						}
@@ -301,10 +319,10 @@ public class MyController implements Initializable{
 		});
 		
 		thread.start();
-		//thread2.start();
+		thread2.start();
 		
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
