@@ -21,8 +21,7 @@ public class MyApplication extends Application{
 	        String css = this.getClass().getResource("frontPage.css").toExternalForm();
 	        scene.getStylesheets().add(css);
 	        primaryStage.show();
-	        
-	        //AudioClip sound = new AudioClip(ClassLoader.getSystemResource("008 - Pelican Town.wav").toString());
+
 	        bgm.setCycleCount(AudioClip.INDEFINITE);
 	        bgm.play();
 	    	

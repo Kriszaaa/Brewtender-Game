@@ -16,7 +16,7 @@
    <children>
       <Pane layoutX="5.0" layoutY="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.6000000000000227" AnchorPane.topAnchor="5.0">
          <children>
-          <Button fx:id="recipes" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#switchToScene2" text="Recipes">
+          <Button fx:id="recipes" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#switchToRecipe" text="Recipes">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

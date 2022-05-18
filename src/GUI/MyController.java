@@ -52,6 +52,7 @@ public class MyController implements Initializable{
 	 private AudioClip buttonclick = new AudioClip(ClassLoader.getSystemResource("Buttonclick.wav").toString());
 	 private AudioClip pick = new AudioClip(ClassLoader.getSystemResource("berry_pick.wav").toString());
 	 private AudioClip pouring = new AudioClip(ClassLoader.getSystemResource("pouringasmalldrink.wav").toString());
+	 
 	@FXML
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
 	
@@ -80,7 +81,7 @@ public class MyController implements Initializable{
 	private ImageView background;
 	
 	@FXML
-	private AnchorPane achorPane;
+	//private AnchorPane achorPane;
 	
 	
 	
@@ -90,6 +91,7 @@ public class MyController implements Initializable{
 	 public void switchToScene1(ActionEvent event) throws IOException {
 		 
 		  buttonclick.play();
+		  
 		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
@@ -108,12 +110,17 @@ public class MyController implements Initializable{
 		  }
 	 }
 	 
-	 public void switchToScene2(ActionEvent event) throws IOException {
+	 public void switchToRecipe(ActionEvent event) throws IOException {
 		  buttonclick.play();
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
+		  //System.out.println(getClass().getResource("recipepage.css").toExternalForm());
 		  Stage stage = new Stage();
+		  scene = new Scene(root,450,450);
+		  String css = this.getClass().getResource("recipepage.css").toExternalForm();
+	      scene.getStylesheets().add(css);
+	      
 		  stage.setTitle("Recipes");
-		  stage.setScene(new Scene(root, 450, 450));
+		  stage.setScene(scene);
 		  stage.show();
 	}
 	
@@ -132,6 +139,17 @@ public class MyController implements Initializable{
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
+		
+		coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
+		tea.setTooltip(new Tooltip(RecipeStorage.getIngredient("Tea")));
+		juice.setTooltip(new Tooltip(RecipeStorage.getIngredient("Juice")));
+		milk.setTooltip(new Tooltip(RecipeStorage.getIngredient("Milk")));
+		mint.setTooltip(new Tooltip(RecipeStorage.getIngredient("Mint")));
+		lemon.setTooltip(new Tooltip(RecipeStorage.getIngredient("Lemon")));
+		cocoa.setTooltip(new Tooltip(RecipeStorage.getIngredient("Cocoa Paste")));
+		caramel.setTooltip(new Tooltip(RecipeStorage.getIngredient("Caramel")));
+		soda.setTooltip(new Tooltip(RecipeStorage.getIngredient("Soda")));
+		
 		orderText.setText(GameLogic.getCustomerOrder());
 		startCountdown();
 		exit = false;
@@ -183,6 +201,10 @@ public class MyController implements Initializable{
 		GameLogic.setZeroScore();
 		
 	}
+	public void showDescription() {
+		
+	}
+	
 	public void fillSize(ActionEvent e) {
 		buttonclick.play();
 		Button btn = (Button) e.getSource();
@@ -209,7 +231,6 @@ public class MyController implements Initializable{
 	}
 	public void add(ActionEvent e) {
 		
-		coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
 		Button btn = (Button) e.getSource();
 		if (GameLogic.getGlass().addable()) {
 			switch(btn.getId()) {
@@ -307,9 +328,9 @@ public class MyController implements Initializable{
 				// TODO Auto-generated method stub
 				while(!exit) {
 					try {
-						timer.setMinute(0);
-						timer.setSeconds(5);
-							for(int i=1;i<=5;i++) {
+						timer.setMinute(5);
+						timer.setSeconds(0);
+							for(int i=1;i<=300;i++) {
 								if(!exit) {
 								timer.decrementTimer(1);
 								timerText.setText(timer.toString());
@@ -357,5 +378,6 @@ public class MyController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		//System.out.print(easyButton.getScene());
+		//coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
 	}
 }
