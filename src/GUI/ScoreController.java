@@ -38,10 +38,14 @@ public class ScoreController implements Initializable{
 	//private Image image;
 	
 	public void switchToFrontPage(ActionEvent event) throws IOException {
-	        Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));
-	        Scene SceneMenu = new Scene(root);
+		
+			Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));
+	        Scene scene = new Scene(root);
+			String css = this.getClass().getResource("frontPage.css").toExternalForm();
+			scene.getStylesheets().add(css);
+			GameLogic.setZeroScore();
 	        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-	        stage.setScene(SceneMenu);
+	        stage.setScene(scene);
 	        stage.show();
 	}
 	public void exit() {
@@ -56,7 +60,7 @@ public class ScoreController implements Initializable{
 			image = new Image("file:images/noob.jpg");
 		}
 		grade.setText(GradingScore.Grading(GameLogic.getScore()));
-		score.setText(Integer.toString(GameLogic.getScore()));
+		score.setText(""+GameLogic.getScore());
         background.setImage(image);
 		
 	}

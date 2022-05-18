@@ -31,6 +31,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -164,6 +165,7 @@ public class MyController implements Initializable{
 		timerText.setText(timer.toString());
 		StartButton.setDisable(false);
 		this.GAMEEND();
+		GameLogic.setZeroScore();
 		
 	}
 	public void fillSize(ActionEvent e) {
@@ -190,6 +192,7 @@ public class MyController implements Initializable{
 		}
 	}
 	public void add(ActionEvent e) {
+		AudioClip sound = new AudioClip(ClassLoader.getSystemResource("pouringasmalldrink.wav").toString());
 		Button btn = (Button) e.getSource();
 		if (GameLogic.getGlass().addable()) {
 			switch(btn.getId()) {
@@ -240,13 +243,13 @@ public class MyController implements Initializable{
 					caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
 					break;
 			}
+			sound.play();
 		}
 			
 	}
 	
 	public void GAMEEND() {
 		GameLogic.clearGlass();
-		GameLogic.setZeroScore();
 		orderText.setText("Order");
 		coffee.setStyle(null);
 		tea.setStyle(null);
@@ -280,8 +283,8 @@ public class MyController implements Initializable{
 				while(!exit) {
 					try {
 						timer.setMinute(0);
-						timer.setSeconds(5);
-							for(int i=1;i<=5;i++) {
+						timer.setSeconds(20);
+							for(int i=1;i<=20;i++) {
 								if(!exit) {
 								timer.decrementTimer(1);
 								timerText.setText(timer.toString());

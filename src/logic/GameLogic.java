@@ -102,12 +102,13 @@ public class GameLogic {
 	}
 	public static boolean Serve(Glass glass,Customer customer) {
 		
-		System.out.println("serve");
+		
 		try {
 			if(DrinkValidator.checkDrink(customer,glass)) {
-				callNextCustomer();
 				playerScore += 500 - MinusScore;
 				MinusScore = 0;
+				System.out.println("serve " + playerScore);
+				callNextCustomer();
 				return true;
 			}else {
 				System.out.print("Wrong Ingredient");
