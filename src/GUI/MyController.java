@@ -11,6 +11,7 @@ import container.Size;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +55,10 @@ public class MyController implements Initializable{
 	@FXML
 	private TableColumn<?, ?> menuList;
 	
+	@FXML
+	private Button newGameBut, quitBut;
+	
+	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
 	
@@ -83,6 +88,16 @@ public class MyController implements Initializable{
 		  stage.setScene(new Scene(root, 450, 450));
 		  stage.show();
 	}
+	
+	 public void switchToScoreScene(boolean end) throws IOException {
+		    if (end == true) {
+		        Parent root = FXMLLoader.load(getClass().getResource("scorePage.fxml"));
+		        Scene SceneMenu = new Scene(root);
+		        Stage stage = (Stage)easyButton.getScene().getWindow();
+		        stage.setScene(SceneMenu);
+		        stage.show();
+		    }
+		}
 	
 	public void start(ActionEvent e) {
 		GameLogic.startGame();
@@ -125,34 +140,12 @@ public class MyController implements Initializable{
 	
 	public void newGame(ActionEvent e) {
 		
+		exit = true;
 		timer.setMinute(5);
 		timer.setSeconds(0);
 		timerText.setText(timer.toString());
-		exit = true;
 		StartButton.setDisable(false);
-		GameLogic.clearGlass();
-		orderText.setText("Order");
-		coffee.setStyle(null);
-		tea.setStyle(null);
-		juice.setStyle(null);
-		milk.setStyle(null);
-		mint.setStyle(null);
-		lemon.setStyle(null);
-		soda.setStyle(null);
-		cocoa.setStyle(null);
-		caramel.setStyle(null);
-		small.setStyle(null);
-		medium.setStyle(null);
-		large.setStyle(null);
-		coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
-		teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
-		juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
-		milkNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Milk")));
-		mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
-		lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
-		sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
-		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
-		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
+		this.GAMEEND();
 		
 	}
 	public void fillSize(ActionEvent e) {
@@ -233,7 +226,32 @@ public class MyController implements Initializable{
 			
 	}
 	
-	
+	public void GAMEEND() {
+		GameLogic.clearGlass();
+		GameLogic.setZeroScore();
+		orderText.setText("Order");
+		coffee.setStyle(null);
+		tea.setStyle(null);
+		juice.setStyle(null);
+		milk.setStyle(null);
+		mint.setStyle(null);
+		lemon.setStyle(null);
+		soda.setStyle(null);
+		cocoa.setStyle(null);
+		caramel.setStyle(null);
+		small.setStyle(null);
+		medium.setStyle(null);
+		large.setStyle(null);
+		coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
+		teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
+		juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
+		milkNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Milk")));
+		mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
+		lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
+		sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
+		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
+		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
+	}
 	
 	public void startCountdown(){
 		Thread thread = new Thread(new Runnable() {
@@ -243,29 +261,53 @@ public class MyController implements Initializable{
 				// TODO Auto-generated method stub
 				while(!exit) {
 					try {
-						timer.setMinute(5);
-						timer.setSeconds(0);
-						for(int i=1;i<=300;i++) {
-							
-							timer.decrementTimer(1);
-							timerText.setText(timer.toString());
-							Thread.sleep(1000);
-							//System.out.println(timer.toString());
-						}
+						timer.setMinute(0);
+						timer.setSeconds(5);
+							for(int i=1;i<=5;i++) {
+								if(!exit) {
+								timer.decrementTimer(1);
+								timerText.setText(timer.toString());
+								Thread.sleep(1000);
+								//System.out.println(timer.toString());
+								}
+								//System.out.println("ppppppp");
+							}
+						exit = true;
 					} catch(Exception e) {
 						
 					}
 				}
-			
+				GAMEEND();
 			}
 		});
+		
+		Thread thread2 = new Thread(() ->{
+			try {
+				thread.join();
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							switchToScoreScene(exit);
+						//System.out.println("pppp");
+						}catch(IOException e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}catch(Exception e) {
+				
+			}
+		});
+		
 		thread.start();
+		//thread2.start();
 		
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		//System.out.print(easyButton.getScene());
 	}
 }

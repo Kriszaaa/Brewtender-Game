@@ -95,7 +95,7 @@ public class GameLogic {
 		mode = choosemode;
 	}
 	public static void endGame() {
-		
+
 	}
 	public static boolean Serve(Glass glass,Customer customer) {
 		
