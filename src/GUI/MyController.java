@@ -85,6 +85,8 @@ public class MyController implements Initializable{
 		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
+		  String css = this.getClass().getResource("gamePage.css").toExternalForm();
+	      scene.getStylesheets().add(css);
 		  stage.setScene(scene);
 		  stage.show();
 		  Button btn = (Button) event.getSource();
