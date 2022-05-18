@@ -9,7 +9,7 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.79999" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text layoutX="61.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bartenduay huaker">
+            <Text fx:id="gameTitle" layoutX="61.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bartenduay huaker">
                <font>
                   <Font name="Cooper Black" size="48.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Font name="Cooper Black" size="26.0" />
                </font>
             </Button>
-            <Text layoutX="158.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--- choose mode to start  ---">
+            <Text fill="WHITE" layoutX="158.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--- choose mode to start  ---">
                <font>
                   <Font name="Cooper Black" size="22.0" />
                </font>

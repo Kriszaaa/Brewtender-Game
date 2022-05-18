@@ -1,0 +1,29 @@
+.root{
+ 	
+ 	  -fx-background-image: url("file:images/bar.jpg");
+ 	  
+
+ 	  -fx-background-size: cover;
+
+
+}
+
+.text{
+	-fx-fill : "white";
+}
+
+#gameTitle{
+	-fx-fill : "white";
+	-fx-stroke: "black";
+	-fx-stroke-width: 2 ;
+}
+
+.button{
+	-fx-background-color:  #6E470B;
+	-fx-background-radius: 10;
+	-fx-border-width: 3;
+	-fx-border-color: #966F33;
+	-fx-border-radius: 5;
+
+	
+}
