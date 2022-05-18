@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -29,17 +28,17 @@
             </Text>
          </children>
       </Pane>
-      <Pane fx:id="orderBar" layoutX="4.800000190734863" layoutY="44.79999923706055" prefHeight="58.0" prefWidth="389.0" AnchorPane.leftAnchor="4.800000190734863" AnchorPane.rightAnchor="97.59999980926511" AnchorPane.topAnchor="44.79999923706055">
+      <Pane fx:id="orderBar" layoutX="5.0" layoutY="45.0" prefHeight="58.0" prefWidth="494.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="45.0">
          <children>
             <Text fx:id="orderText" fill="WHITE" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order">
                <font>
-                  <Font name="Agency FB" size="29.0" />
+                  <Font name="Agency FB Bold" size="21.0" />
                </font></Text>
          </children>
       </Pane>
       <TitledPane fx:id="se" layoutX="5.0" layoutY="236.0" prefHeight="245.0" prefWidth="300.0" text="Select Flavorings" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="295.0" AnchorPane.topAnchor="236.0">
          <content>
-            <AnchorPane>
+            <AnchorPane style="-fx-background-color: #6E470B;">
                <children>
                   <Button fx:id="milk" layoutX="14.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add" prefHeight="66.0" prefWidth="81.0">
                      <graphic>
@@ -156,18 +155,24 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </TitledPane>
-      <VBox alignment="CENTER" layoutX="500.0" prefHeight="489.0" prefWidth="102.0" spacing="5.0" style="-fx-background-color: brown;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="rightTab" alignment="CENTER" layoutX="500.0" prefHeight="489.0" prefWidth="102.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="StartButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="72.0" text="Start" />
-            <Button fx:id="NewGameButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#newGame" text="New game" />
+            <Button fx:id="StartButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="72.0" text="Start">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="NewGameButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#newGame" text="New game">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
-      <TitledPane fx:id="selectBeverageBar" animated="false" layoutX="4.0" layoutY="103.0" prefHeight="134.0" prefWidth="300.0" text="Select Your Beverage" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="295.0">
+      <TitledPane fx:id="selectBeverageBar" animated="false" layoutX="4.0" layoutY="103.0" prefHeight="134.0" prefWidth="300.0" style="-fx-skin: brown;" text="Select Your Beverage" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="295.0">
         <content>
-            <AnchorPane>
+            <AnchorPane style="-fx-background-color: #6E470B;">
                <children>
                   <Button fx:id="coffee" contentDisplay="CENTER" layoutX="14.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#add">
                      <graphic>
@@ -249,17 +254,25 @@
       </Pane>
       <TitledPane layoutX="299.0" layoutY="103.0" prefHeight="378.0" prefWidth="102.0" text="Size" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="103.0">
          <content>
-            <TilePane prefHeight="334.0" prefWidth="101.0">
+            <Pane prefHeight="279.0" prefWidth="79.0" style="-fx-background-color: #6E470B;">
                <children>
-                  <Pane prefHeight="279.0" prefWidth="79.0">
-                     <children>
-                        <Button fx:id="small" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="S" />
-                        <Button fx:id="medium" layoutX="10.0" layoutY="47.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="M" />
-                        <Button fx:id="large" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="L" />
-                     </children>
-                  </Pane>
+                  <Button fx:id="small" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="S">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="medium" layoutX="18.0" layoutY="47.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="M">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="large" layoutX="18.0" layoutY="81.0" mnemonicParsing="false" onAction="#fillSize" prefHeight="17.0" prefWidth="64.0" text="L">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
-            </TilePane>
+            </Pane>
          </content>
          <font>
             <Font name="System Bold" size="12.0" />

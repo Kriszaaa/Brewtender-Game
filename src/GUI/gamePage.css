@@ -8,6 +8,9 @@
 
 }
 
+.titled-pane > .title > .text{
+	-fx-fill : "black";
+}
 .text{
 	-fx-fill : "white";
 }
@@ -48,3 +51,6 @@
 	-fx-text-fill:black;
 }
 
+#rightTab{
+	-fx-background-color:  #6E470B ;
+}
