@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.GameLogic;
@@ -35,10 +36,12 @@ public class ScoreController implements Initializable{
 	
 	@FXML
 	private Text grade,score;
+	
+	private AudioClip buttonclick = new AudioClip(ClassLoader.getSystemResource("Buttonclick.wav").toString());
 	//private Image image;
 	
 	public void switchToFrontPage(ActionEvent event) throws IOException {
-		
+			buttonclick.play();
 			Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));
 	        Scene scene = new Scene(root);
 			String css = this.getClass().getResource("frontPage.css").toExternalForm();
@@ -49,6 +52,7 @@ public class ScoreController implements Initializable{
 	        stage.show();
 	}
 	public void exit() {
+		buttonclick.play();
 		Platform.exit();
 	}
 	@Override

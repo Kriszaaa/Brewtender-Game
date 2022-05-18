@@ -32,9 +32,12 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import logic.GameLogic;
 import logic.GradingScore;
 import logic.Mode;
@@ -45,7 +48,9 @@ public class MyController implements Initializable{
 	 private Stage stage;
 	 private Scene scene;
 	 private Parent root;
-	
+	 private AudioClip buttonclick = new AudioClip(ClassLoader.getSystemResource("Buttonclick.wav").toString());
+	 private AudioClip pick = new AudioClip(ClassLoader.getSystemResource("berry_pick.wav").toString());
+	 private AudioClip pouring = new AudioClip(ClassLoader.getSystemResource("pouringasmalldrink.wav").toString());
 	@FXML
 	private Button coffee,tea,juice,milk,mint,lemon,soda,cocoa,caramel;
 	
@@ -76,12 +81,13 @@ public class MyController implements Initializable{
 	@FXML
 	private AnchorPane achorPane;
 	
+	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
 	
 	 public void switchToScene1(ActionEvent event) throws IOException {
 		 
-		 
+		  buttonclick.play();
 		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
@@ -101,6 +107,7 @@ public class MyController implements Initializable{
 	 }
 	 
 	 public void switchToScene2(ActionEvent event) throws IOException {
+		  buttonclick.play();
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
 		  Stage stage = new Stage();
 		  stage.setTitle("Recipes");
@@ -110,6 +117,7 @@ public class MyController implements Initializable{
 	
 	 public void switchToScoreScene(boolean end) throws IOException {
 		    if (end == true) {
+		    	
 		        Parent root = FXMLLoader.load(getClass().getResource("scorePage.fxml"));
 		        //root.setStyle("-fx-background-color: images/goobjob.jpg");
 		        Scene SceneMenu = new Scene(root);
@@ -126,8 +134,10 @@ public class MyController implements Initializable{
 		startCountdown();
 		exit = false;
 		StartButton.setDisable(true);
+		buttonclick.play();
 	}
 	public void clear(ActionEvent e) {
+		buttonclick.play();
 		GameLogic.clearGlass();
 		coffee.setStyle(null);
 		tea.setStyle(null);
@@ -153,6 +163,7 @@ public class MyController implements Initializable{
 		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
 	}
 	public void serve(ActionEvent e) {
+		buttonclick.play();
 		if(GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer())) {
 			orderText.setText(GameLogic.getCustomerOrder());
 			clear(e);
@@ -160,7 +171,7 @@ public class MyController implements Initializable{
 	}
 	
 	public void newGame(ActionEvent e) {
-		
+		buttonclick.play();
 		exit = true;
 		timer.setMinute(5);
 		timer.setSeconds(0);
@@ -171,6 +182,7 @@ public class MyController implements Initializable{
 		
 	}
 	public void fillSize(ActionEvent e) {
+		buttonclick.play();
 		Button btn = (Button) e.getSource();
 		switch(btn.getId()) {
 		case "small":
@@ -194,7 +206,6 @@ public class MyController implements Initializable{
 		}
 	}
 	public void add(ActionEvent e) {
-		AudioClip sound = new AudioClip(ClassLoader.getSystemResource("pouringasmalldrink.wav").toString());
 		Button btn = (Button) e.getSource();
 		if (GameLogic.getGlass().addable()) {
 			switch(btn.getId()) {
@@ -202,50 +213,58 @@ public class MyController implements Initializable{
 					GameLogic.addIngredientToGlass("Coffee");
 					coffee.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					coffeeNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Coffee")));
+					pouring.play();
 					break;
 				case "tea":
 					GameLogic.addIngredientToGlass("Tea");
 					tea.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					teaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Tea")));
+					pouring.play();
 					break;
 					
 				case "juice":
 					GameLogic.addIngredientToGlass("Juice");
 					juice.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					juiceNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Juice")));
+					pouring.play();
 					break;
 				case "milk":
 					GameLogic.addIngredientToGlass("Milk");
 					milk.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					milkNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Milk")));
+					pouring.play();
 					break;
 				case "mint":
 					GameLogic.addIngredientToGlass("Mint");
 					mint.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					mintNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Mint")));
+					pick.play();
 					break;
 				case "lemon":
 					GameLogic.addIngredientToGlass("Lemon");
 					lemon.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					lemonNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Lemon")));
+					pick.play();
 					break;
 				case "soda":
 					GameLogic.addIngredientToGlass("Soda");
 					soda.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					sodaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Soda")));
+					pouring.play();
 					break;
 				case "cocoa":
 					GameLogic.addIngredientToGlass("Cocoa Paste");
 					cocoa.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
+					pick.play();
 					break;
 				case "caramel":
 					GameLogic.addIngredientToGlass("Caramel");
 					caramel.setStyle("-fx-border-color: #00FF00; -fx-border-width:2; -fx-border-radius:5");
 					caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
+					pick.play();
 					break;
 			}
-			sound.play();
 		}
 			
 	}
