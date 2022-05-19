@@ -66,7 +66,6 @@ public class frontPageController implements Initializable{
 		Image image = new Image(image_path);
 		anchorPane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 									BackgroundPosition.DEFAULT,new BackgroundSize(1.0, 1.0, true, true, false, false))));
-
 	}
 
 }

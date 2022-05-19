@@ -73,7 +73,10 @@ public class MyController implements Initializable{
 	private TableColumn<?, ?> menuList;
 	
 	@FXML
-	private ImageView background;
+	private ImageView background,coffeeimg,teaimg,juiceimg,sodaimg,lemonimg,milkimg,cocoaimg,caramelimg,mintimg;
+	
+	@FXML
+	private AnchorPane anchorPane;
 
 	
 	Timer timer = new Timer(5,0);
@@ -306,9 +309,7 @@ public class MyController implements Initializable{
 								timer.decrementTimer(1);
 								timerText.setText(timer.toString());
 								Thread.sleep(1000);
-								//System.out.println(timer.toString());
 								}
-								//System.out.println("ppppppp");
 							}
 						exit = true;
 					} catch(Exception e) {
@@ -348,7 +349,28 @@ public class MyController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		//System.out.print(easyButton.getScene());
-		//coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
+		String image_path = (ClassLoader.getSystemResource("bar.png").toString());
+		Image image = new Image(image_path);
+		anchorPane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                									BackgroundPosition.DEFAULT,new BackgroundSize(1.0, 1.0, true, true, false, false))));
+		String coffee_path = (ClassLoader.getSystemResource("coffee.png").toString());
+		String tea_path = (ClassLoader.getSystemResource("tea.png").toString());
+		String juice_path = (ClassLoader.getSystemResource("juice.png").toString());
+		String milk_path = (ClassLoader.getSystemResource("milk.png").toString());
+		String mint_path = (ClassLoader.getSystemResource("mint.png").toString());
+		String caramel_path = (ClassLoader.getSystemResource("caramel.png").toString());
+		String lemon_path = (ClassLoader.getSystemResource("lemon.png").toString());
+		String soda_path = (ClassLoader.getSystemResource("soda.png").toString());
+		String cocoa_path = (ClassLoader.getSystemResource("cocoa.png").toString());
+		
+		coffeeimg.setImage(new Image(coffee_path));
+		teaimg.setImage(new Image(tea_path));
+		juiceimg.setImage(new Image(juice_path));
+		milkimg.setImage(new Image(milk_path));
+		cocoaimg.setImage(new Image(cocoa_path));
+		mintimg.setImage(new Image(mint_path));
+		lemonimg.setImage(new Image(lemon_path));
+		sodaimg.setImage(new Image(soda_path));
+		caramelimg.setImage(new Image(caramel_path));
 	}
 }
