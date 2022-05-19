@@ -1,4 +1,4 @@
-package component.recipe;
+	package component.recipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +8,7 @@ import component.Flavoring;
 import component.Ingredient;
 
 public class RecipeStorage {
+	
 	protected static Beverage coffee = new Beverage("Coffee","Richly-flavored coffee made using complex processes suck as grinding and drip filtration.",1);
 	protected static Beverage tea = new Beverage("Tea","High-quality tea leaves have been used to brew this tea. Has a rich fragrance.",1);
 	protected static Beverage juice = new Beverage("Juice","Large and full orange have been hand-juiced to make this delicious sweet-and-sour extract.",1);
@@ -20,8 +21,8 @@ public class RecipeStorage {
 	protected static Flavoring soda = new Flavoring("Soda","A liquid that bubbles over. It has no taste, but its mouthfeel packs a punch",1);
 	
 	protected static ArrayList<Ingredient> baseingredient  = new ArrayList(Arrays.asList(coffee,tea,juice,milk,cocoa,caramel,lemon,soda,mint));
-	
 	protected static ArrayList<Recipe> allrecipes;
+	
 	public static ArrayList<Recipe> getAllrecipes() {
 		return allrecipes;
 	}
