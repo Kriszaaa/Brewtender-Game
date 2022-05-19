@@ -10,10 +10,7 @@ import logic.Customer;
 
 public class EasyRecipe extends RecipeStorage{
 
-		private static ArrayList<Customer> CustomerList;
-		
-		
-		
+
 		private static ArrayList<Ingredient> atn = new ArrayList(Arrays.asList(Beverage.setCondense(coffee, 3)));
 		private static ArrayList<Ingredient> cp = new ArrayList(Arrays.asList(coffee,milk,caramel));
 		private static ArrayList<Ingredient> fr = new ArrayList(Arrays.asList(Beverage.setCondense(coffee, 2),soda));

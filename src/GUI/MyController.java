@@ -40,7 +40,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import logic.GameLogic;
-import logic.GradingScore;
+import logic.Grade;
 import logic.Mode;
 import logic.Timer;
 
@@ -68,12 +68,9 @@ public class MyController implements Initializable{
 	
 	@FXML
 	private Text milkNumberText,mintNumberText,lemonNumberText,sodaNumberText,cocoaNumberText,caramelNumberText;
-
-	@FXML
-	private TableColumn<?, ?> menuList;
 	
 	@FXML
-	private ImageView background,coffeeimg,teaimg,juiceimg,sodaimg,lemonimg,milkimg,cocoaimg,caramelimg,mintimg;
+	private ImageView coffeeimg,teaimg,juiceimg,sodaimg,lemonimg,milkimg,cocoaimg,caramelimg,mintimg;
 	
 	@FXML
 	private AnchorPane anchorPane;
@@ -82,7 +79,7 @@ public class MyController implements Initializable{
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
 	
-	 
+
 	public void switchToRecipe(ActionEvent event) throws IOException {
 		  buttonclick.play();
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
@@ -111,6 +108,7 @@ public class MyController implements Initializable{
 	 
 	
 	public void start(ActionEvent e) {
+		
 		GameLogic.startGame();
 		
 		coffee.setTooltip(new Tooltip(RecipeStorage.getIngredient("Coffee")));
@@ -129,6 +127,7 @@ public class MyController implements Initializable{
 		StartButton.setDisable(true);
 		buttonclick.play();
 	}
+	
 	public void clear(ActionEvent e) {
 		buttonclick.play();
 		GameLogic.clearGlass();
@@ -155,9 +154,10 @@ public class MyController implements Initializable{
 		cocoaNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Cocoa Paste")));
 		caramelNumberText.setText(String.valueOf(GameLogic.getConcentrationWithId("Caramel")));
 	}
+	
 	public void serve(ActionEvent e) {
 		buttonclick.play();
-		if(GameLogic.Serve(GameLogic.getGlass(), GameLogic.getPresentcustomer())) {
+		if(GameLogic.isServable(GameLogic.getGlass(), GameLogic.getPresentcustomer())) {
 			orderText.setText(GameLogic.getCustomerOrder());
 			clear(e);
 		}
@@ -171,14 +171,11 @@ public class MyController implements Initializable{
 		timer.setSeconds(0);
 		timerText.setText(timer.toString());
 		StartButton.setDisable(false);
-		this.GAMEEND();
+		this.gameEnd();
 		GameLogic.setZeroScore();
 		
 	}
-	public void showDescription() {
-		
-	}
-	
+
 	public void fillSize(ActionEvent e) {
 		buttonclick.play();
 		Button btn = (Button) e.getSource();
@@ -203,10 +200,11 @@ public class MyController implements Initializable{
 			break;
 		}
 	}
+	//add Ingredient to glass
 	public void add(ActionEvent e) {
 		
 		Button btn = (Button) e.getSource();
-		if (GameLogic.getGlass().addable()) {
+		if (GameLogic.getGlass().isAddable()) {
 			switch(btn.getId()) {
 				case "coffee":
 					GameLogic.addIngredientToGlass("Coffee");
@@ -268,7 +266,8 @@ public class MyController implements Initializable{
 			
 	}
 	
-	public void GAMEEND() {
+	public void gameEnd() {
+		
 		GameLogic.clearGlass();
 		orderText.setText("Order");
 		coffee.setStyle(null);
@@ -295,6 +294,8 @@ public class MyController implements Initializable{
 	}
 	
 	public void startCountdown(){
+		
+		//Thread to run timer
 		Thread thread = new Thread(new Runnable() {
 
 			@Override
@@ -316,10 +317,11 @@ public class MyController implements Initializable{
 						
 					}
 				}
-				GAMEEND();
+				gameEnd();
 			}
 		});
 		
+		//Thread to switch to score scene when timeout
 		Thread thread2 = new Thread(() ->{
 			try {
 				thread.join();

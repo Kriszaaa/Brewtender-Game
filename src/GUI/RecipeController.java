@@ -27,19 +27,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-	public class RecipeController implements Initializable{
-		
-		@FXML
-		private AnchorPane anchorPane;
-		
-		
-		@Override
-		public void initialize(URL arg0, ResourceBundle arg1) {
-			// TODO Auto-generated method 
-			String image_path = (ClassLoader.getSystemResource("oldpaper.jpg").toString());
-			Image image = new Image(image_path);
-			anchorPane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
-	                									BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
+public class RecipeController implements Initializable{
+	
+	@FXML
+	private AnchorPane anchorPane;
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method 
+		String image_path = (ClassLoader.getSystemResource("oldpaper.jpg").toString());
+		Image image = new Image(image_path);
+		anchorPane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                									BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
 
-		}
+	}
 }

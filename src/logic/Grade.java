@@ -1,7 +1,7 @@
 package logic;
 
-public class GradingScore {
-	public static String Grading(int score) {
+public class Grade {
+	public static String grading(int score) {
 		if(score >= 15000) {
 			return "Perfect";
 		}else if(score >= 7500) {
@@ -12,7 +12,7 @@ public class GradingScore {
 			return "Suits you";
 		}
 	}
-	public static int GradingInt(int score) {
+	public static int gradingInt(int score) {
 		if(score == 10000) {
 			return 1;
 		}else if(score >= 7500) {

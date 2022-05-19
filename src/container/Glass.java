@@ -44,17 +44,8 @@ public class Glass implements Addable{
 				
 			}
 			this.setDrink(drink);
-			//showDrink();
 			this.setCapacity(this.getCapacity()+1);
 		}
-	}
-	
-	public void showDrink() {
-		System.out.print("\nDrink :");
-		for(Ingredient i:this.getDrink()) {
-			System.out.println(i.getName()+" "+i.getConcentration());
-		}
-		System.out.println(this.getSize());
 	}
 	
 	public void clearGlass() {
@@ -71,7 +62,7 @@ public class Glass implements Addable{
 		}
 		return false;
 	}
-	public boolean addable() {
+	public boolean isAddable() {
 		return this.getCapacity() != this.MaxIngredient;
 	}
 	

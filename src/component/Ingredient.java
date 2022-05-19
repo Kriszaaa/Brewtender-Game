@@ -6,7 +6,7 @@ public class Ingredient {
 	
 	private String name;
 	private String description;
-	protected int concentration = 1;
+	private int concentration = 1;
 	
 	public Ingredient(String name,String description) {
 		this.setName(name);
@@ -18,11 +18,11 @@ public class Ingredient {
 		this.setDescription("");
 		this.setConcentration(concentration);
 	}
-	public static Ingredient setCondense(Ingredient ingredient,int concentration) {
+	/*public static Ingredient setCondense(Ingredient ingredient,int concentration) {
 		Ingredient newIngredient = ingredient;
 		newIngredient.setConcentration(concentration);
 		return newIngredient;
-	}
+	}*/
 	
 	public boolean checkSameIngredient(Ingredient i) {
 		if(this.getName().equals(i.getName()) && this.getConcentration() ==  i.getConcentration()) {

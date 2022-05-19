@@ -20,13 +20,11 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import logic.GameLogic;
-import logic.GradingScore;
+import logic.Grade;
 
 public class ScoreController implements Initializable{
 	
 	private Stage stage;
-	private Scene scene;
-	private Parent root;
 	
 	@FXML
 	private Button newGameButton,QuitButton;
@@ -59,14 +57,14 @@ public class ScoreController implements Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stu
+		// TODO Auto-generated method 
 		String image_path = (ClassLoader.getSystemResource("goodjob.jpg").toString());
 		Image image = new Image(image_path);
-		if(GradingScore.GradingInt(GameLogic.getScore()) == 2) {
+		if(Grade.gradingInt(GameLogic.getScore()) == 2) {
 			image_path = (ClassLoader.getSystemResource("noob.jpg").toString());
 			image = new Image(image_path);
 		}
-		grade.setText(GradingScore.Grading(GameLogic.getScore()));
+		grade.setText(Grade.grading(GameLogic.getScore()));
 		score.setText(""+GameLogic.getScore());
         background.setImage(image);
 		

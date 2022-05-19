@@ -12,8 +12,8 @@ public class DrinkValidator {
 	
 	public static boolean checkDrink(Customer customer,Glass glass) throws ServeFailedException{
 		
+		//check if glass has at least 1 beverage and glass size not empty
 		ArrayList<Ingredient> customerdrink = customer.getDrink();
-		System.out.println(glass.getSize());
 		
 		if(glass.getSize().equals(Size.EMPTY) && !glass.isServable()) {
 			throw new ServeFailedException("Add at least 1 beverage and Fill your glass size!!");

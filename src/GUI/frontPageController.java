@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import logic.GameLogic;
 import logic.Mode;
 
-public class frontPageController implements Initializable{
+public class FrontPageController implements Initializable{
 
 	
 	@FXML
@@ -40,7 +40,6 @@ public class frontPageController implements Initializable{
 	public void switchToScene1(ActionEvent event) throws IOException {
 		 
 		  buttonclick.play();
-		  
 		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
@@ -67,5 +66,4 @@ public class frontPageController implements Initializable{
 		anchorPane.setBackground(new Background(new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
                 									BackgroundPosition.DEFAULT,new BackgroundSize(1.0, 1.0, true, true, false, false))));
 	}
-
 }

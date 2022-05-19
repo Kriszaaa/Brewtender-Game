@@ -25,62 +25,41 @@ import javafx.scene.control.Alert.AlertType;
 public class GameLogic {
 
 	private static Timer playerTimer;
-	private static int playerScore = 0;
-	private static int MinusScore = 0;
-	private static int trytimes = 3;
-	private static int orderrunner = 0;
+	private static int playerScore;
+	private static int MinusScore;
+	private static int trytimes;
+	private static int orderrunner;
 	
-	
-	private static Glass glass;
-	private static ArrayList<Customer> CustomerList;
 	private static Mode mode;
-	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("Noob.","Is this the best you can do??","So embarassing."));
+	private static Glass glass;
 	private static Customer presentcustomer;
-	
+	private static ArrayList<Customer> CustomerList;
+	private static ArrayList<String> ErrorText = new ArrayList(Arrays.asList("Noob.","Is this the best you can do??","So embarassing."));
 	private String errorText = "";
-	public static void selectMode(Mode choosenMode) {
-		mode = choosenMode;
-	}
+	
 	public static void startGame() {
+		playerScore = 0;
+		MinusScore = 0;
+		trytimes = 3;
+		orderrunner = 0;
 		glass = new Glass();
-		System.out.println("start");
-		System.out.println(mode);
 		startRunOrder();
 	}
 	public static void startRunOrder() {
 		
-		
+		System.out.println(mode);
 		if(mode.equals(Mode.EASY)) {
 			EasyRecipe.createRecipes();
-			//test
-			for(Recipe i:EasyRecipe.getAllrecipes()) {
-				System.out.println(i.getDescription());
-				for (Ingredient j:i.getListofingredient()) {
-					System.out.print(j.getName()+" ");
-					System.out.print(j.getConcentration()+" ");
-				}
-				System.out.println();
-			}
-			
-			
-			
 		}else if(mode.equals(Mode.HARD)) {
 			HardRecipe.createRecipes();
-			//test
-			for(Recipe i:HardRecipe.getAllrecipes()) {
-				System.out.println(i.getDescription());
-				for (Ingredient j:i.getListofingredient()) {
-					System.out.print(j.getName()+" ");
-					System.out.print(j.getConcentration()+" ");
-				}
-				System.out.println();
-			}
 		}
-		ListOfCustomer.generateCustomerList(mode);
+		ListOfCustomer.generateCustomerList();
 		CustomerList = ListOfCustomer.getCustomerList();
 		presentcustomer = CustomerList.get(orderrunner);
 	}
-
+	public static void selectMode(Mode choosenMode) {
+		mode = choosenMode;
+	}
 	
 	public static void callNextCustomer() {
 		trytimes = 3;
@@ -93,10 +72,7 @@ public class GameLogic {
 	public static int getScore() {
 		return playerScore;
 	}
-	public static void endGame() {
-
-	}
-	public static boolean Serve(Glass glass,Customer customer) {
+	public static boolean isServable(Glass glass,Customer customer) {
 		
 		
 		try {
@@ -115,6 +91,8 @@ public class GameLogic {
 				alert.setHeaderText(null);
 				ButtonType tryagain = new ButtonType("");
 				if(trytimes <= 0) {
+					//change customer
+					
 					String errortext = "Customer get upset. Why you so noob man.";
 					alert.setContentText(errortext);
 					alert.getButtonTypes().clear();
@@ -199,7 +177,6 @@ public class GameLogic {
 		}
 	}
 	public static void clearGlass() {
-		System.out.println("clear");
 		glass = new Glass();
 	}
 	

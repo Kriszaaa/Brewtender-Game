@@ -1,5 +1,5 @@
 package container;
 
 public interface Addable {
-	boolean addable();
+	boolean isAddable();
 }
