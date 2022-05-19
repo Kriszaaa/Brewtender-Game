@@ -41,12 +41,16 @@ public class ScoreController implements Initializable{
 	//private Image image;
 	
 	public void switchToFrontPage(ActionEvent event) throws IOException {
+		
 			buttonclick.play();
+			GameLogic.setZeroScore();
 			Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));
 	        Scene scene = new Scene(root);
-			GameLogic.setZeroScore();
+	        String css = this.getClass().getResource("frontPage.css").toExternalForm();
+	        scene.getStylesheets().add(css);
 	        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	        stage.setScene(scene);
+	        stage.setTitle("Bartender");
 	        stage.show();
 	}
 	public void exit() {

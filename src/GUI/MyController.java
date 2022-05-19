@@ -49,6 +49,7 @@ public class MyController implements Initializable{
 	 private Stage stage;
 	 private Scene scene;
 	 private Parent root;
+	 
 	 private AudioClip buttonclick = new AudioClip(ClassLoader.getSystemResource("Buttonclick.wav").toString());
 	 private AudioClip pick = new AudioClip(ClassLoader.getSystemResource("berry_pick.wav").toString());
 	 private AudioClip pouring = new AudioClip(ClassLoader.getSystemResource("pouringasmalldrink.wav").toString());
@@ -78,29 +79,8 @@ public class MyController implements Initializable{
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
 	
-	 public void switchToScene1(ActionEvent event) throws IOException {
-		 
-		  buttonclick.play();
-		  
-		  root = FXMLLoader.load(getClass().getResource("gamePage.fxml"));
-		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		  scene = new Scene(root);
-		  String css = this.getClass().getResource("gamePage.css").toExternalForm();
-	      scene.getStylesheets().add(css);
-		  stage.setScene(scene);
-		  stage.show();
-		  Button btn = (Button) event.getSource();
-		  switch(btn.getId()) {
-			case "easyButton":
-				GameLogic.chooseMode(Mode.EASY);
-				break;
-			case "hardButton":
-				GameLogic.chooseMode(Mode.HARD);
-				break;
-		  }
-	 }
 	 
-	 public void switchToRecipe(ActionEvent event) throws IOException {
+	public void switchToRecipe(ActionEvent event) throws IOException {
 		  buttonclick.play();
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
 		  Stage stage = new Stage();
@@ -181,6 +161,7 @@ public class MyController implements Initializable{
 	}
 	
 	public void newGame(ActionEvent e) {
+		
 		buttonclick.play();
 		exit = true;
 		timer.setMinute(5);

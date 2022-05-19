@@ -25,7 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 public class GameLogic {
 
 	private static Timer playerTimer;
-	private static int playerScore = 7500;
+	private static int playerScore = 0;
 	private static int MinusScore = 0;
 	private static int trytimes = 3;
 	private static int orderrunner = 0;
@@ -79,12 +79,6 @@ public class GameLogic {
 		ListOfCustomer.generateCustomerList(mode);
 		CustomerList = ListOfCustomer.getCustomerList();
 		presentcustomer = CustomerList.get(orderrunner);
-		/*for(int i = 0;i<20;i++) {
-			//System.out.println(CustomerList.get(i).getDescription()+" "+CustomerList.get(i).getRecipes()+" "+CustomerList.get(i).getSize());
-			for(Ingredient j:CustomerList.get(i).getDrink()) {
-				System.out.print(j.getName()+" "+j.getConcentration()+"\n");
-			}
-		}*/
 	}
 
 	
