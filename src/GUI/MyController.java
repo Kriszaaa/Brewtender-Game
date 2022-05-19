@@ -115,7 +115,7 @@ public class MyController implements Initializable{
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
 		  //System.out.println(getClass().getResource("recipepage.css").toExternalForm());
 		  Stage stage = new Stage();
-		  scene = new Scene(root,450,450);
+		  scene = new Scene(root);
 		  String css = this.getClass().getResource("recipepage.css").toExternalForm();
 	      scene.getStylesheets().add(css);
 	      
@@ -131,6 +131,8 @@ public class MyController implements Initializable{
 		        //root.setStyle("-fx-background-color: images/goobjob.jpg");
 		        Scene SceneMenu = new Scene(root);
 		        Stage stage = (Stage)StartButton.getScene().getWindow();
+		        String css1 = this.getClass().getResource("scorePage.css").toExternalForm();
+			    SceneMenu.getStylesheets().add(css1);
 		        stage.setScene(SceneMenu);
 		        stage.show();
 		    }

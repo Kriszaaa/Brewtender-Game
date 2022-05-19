@@ -10,33 +10,33 @@
 <AnchorPane fx:id="achorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="600.0" style="-fx-background-image: images/goodjob.jpg;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ScoreController">
    <children>
       <ImageView fx:id="background" fitHeight="465.0" fitWidth="689.0" pickOnBounds="true" preserveRatio="true" />
-      <Pane layoutX="125.0" layoutY="124.0" opacity="0.66" prefHeight="122.0" prefWidth="327.0" style="-fx-background-color: rgb(255,255,255); -fx-padding: 10 10 10 10;">
+      <Pane fx:id="scorePane" layoutX="125.0" layoutY="124.0" opacity="0.84" prefHeight="122.0" prefWidth="327.0">
          <children>
-            <Text layoutX="27.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:" wrappingWidth="111.48046875">
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="27.0" layoutY="74.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:" wrappingWidth="111.48046875">
                <font>
-                  <Font size="39.0" />
+                  <Font name="Agency FB Bold" size="39.0" />
                </font>
             </Text>
-            <Text fx:id="score" layoutX="154.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="186.38714599609375">
+            <Text fx:id="score" fill="WHITE" fontSmoothingType="LCD" layoutX="154.0" layoutY="78.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="186.38714599609375">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Agency FB" size="48.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Text fx:id="grade" fill="WHITE" layoutX="-29.0" layoutY="102.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="4.0" text="Grade" textAlignment="CENTER" wrappingWidth="635.0405883789062">
+      <Text fx:id="grade" fill="WHITE" layoutX="-29.0" layoutY="102.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="3.0" text="Grade" textAlignment="CENTER" wrappingWidth="635.0405883789062" AnchorPane.leftAnchor="-29.159411621093795" AnchorPane.rightAnchor="-6.04058837890625" AnchorPane.topAnchor="46.90234375">
          <font>
-            <Font size="56.0" />
+            <Font name="Agency FB" size="56.0" />
          </font>
       </Text>
-      <Button fx:id="newGameButton" layoutX="67.0" layoutY="269.0" mnemonicParsing="false" onAction="#switchToFrontPage" prefHeight="66.0" prefWidth="222.0" text="New Game">
+      <Button fx:id="newGameButton" layoutX="67.0" layoutY="269.0" mnemonicParsing="false" onAction="#switchToFrontPage" prefHeight="66.0" prefWidth="222.0" text="New Game" AnchorPane.leftAnchor="67.0">
          <font>
-            <Font size="26.0" />
+            <Font name="Agency FB Bold" size="37.0" />
          </font>
       </Button>
       <Button fx:id="QuitButton" layoutX="313.0" layoutY="269.0" mnemonicParsing="false" onAction="#exit" prefHeight="66.0" prefWidth="222.0" text="Quit">
          <font>
-            <Font size="26.0" />
+            <Font name="Agency FB Bold" size="37.0" />
          </font>
       </Button>
    </children>
