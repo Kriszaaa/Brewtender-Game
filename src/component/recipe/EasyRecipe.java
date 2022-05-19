@@ -63,38 +63,10 @@ public class EasyRecipe extends RecipeStorage{
 		private static String sa_des = "Scholar's Afternoon";
 		private static String tb_des = "Tart Brilliance";
 		
-		
-		//recipes
-		/*private static String atn_rep = "Coffee + Coffee + Coffee";
-		private static String cp_rep = "Coffee + Milk + Caramel";
-		private static String fr_rep = "Coffee + Coffee + Fizzy Water";
-		private static String ge_rep = "Coffee + Coffee + Milk";
-		private static String ma_rep = "Coffee + Milk + Cocoa Paste";
-		private static String nss_rep = "Coffee + Milk + Milk";
-		private static String sn_rep = "Coffee + Tea + Milk";
-		
-		private static String bb_rep = "Juice + Fizzy Water + Mint";
-		private static String bs_rep = "Juice + Juice + Lemon";
-		private static String dd_rep = "Juice + Juice + Fizzy Water";
-		private static String gvs_rep = "Juice + Juice + Juice";
-		private static String sck_rep = "Juice + Juice + Milk";
-		private static String scl_rep = "Juice + Milk + Milk";
-		
-		private static String bw_rep = "Tea + Milk + Mint";
-		private static String b_rep = "Tea + Milk + Milk";
-		private static String d_rep = "Tea + Juice + Juice";
-		private static String lc_rep = "Tea + Milk + Cocoa Paste";
-		private static String lp_rep = "Tea + Milk + Caramel";
-		private static String mg_rep = "Tea + Tea + Tea";
-		private static String sa_rep = "Tea + Tea + Milk";
-		private static String tb_rep = "Tea + Tea + Lemon";
-		*/
+
 		
 		public static void createRecipes() {
-			
-			//System.out.println(atn.get(0).getConcentration()+" "+atn.get(0).getName());
-			
-			
+
 			Recipe atn_reps = new Recipe(atn_des,atn);
 			Recipe cp_reps = new Recipe(cp_des,cp);
 			Recipe fr_reps = new Recipe(fr_des,fr);

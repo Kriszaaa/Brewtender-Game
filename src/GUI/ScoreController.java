@@ -62,7 +62,6 @@ public class ScoreController implements Initializable{
 		// TODO Auto-generated method stu
 		String image_path = (ClassLoader.getSystemResource("goodjob.jpg").toString());
 		Image image = new Image(image_path);
-		//System.out.println(GradingScore.GradingInt(GameLogic.getScore()));
 		if(GradingScore.GradingInt(GameLogic.getScore()) == 2) {
 			image_path = (ClassLoader.getSystemResource("noob.jpg").toString());
 			image = new Image(image_path);

@@ -37,16 +37,14 @@ public class Glass implements Addable{
 				if(ingredient instanceof Edible) {
 					Beverage newingredient = (Beverage) ingredient;
 					drink.add(newingredient);
-					//System.out.println(newingredient.getName()+" "+newingredient.getConcentration());
 				}else {
 					Flavoring newingredient = (Flavoring) ingredient;
 					drink.add(newingredient);
-					//System.out.println(newingredient.getName()+" "+newingredient.getConcentration());
 				}
 				
 			}
 			this.setDrink(drink);
-			showDrink();
+			//showDrink();
 			this.setCapacity(this.getCapacity()+1);
 		}
 	}

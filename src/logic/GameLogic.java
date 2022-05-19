@@ -103,23 +103,10 @@ public class GameLogic {
 			if(DrinkValidator.checkDrink(customer,glass)) {
 				playerScore += 500 - MinusScore;
 				MinusScore = 0;
-				System.out.println("serve " + playerScore);
 				callNextCustomer();
 				return true;
 			}else {
-				System.out.print("Wrong Ingredient");
-				
-				//test
-				System.out.println();
-				for(Ingredient i:glass.getDrink()) {
-					System.out.print(i.getName()+" "+i.getConcentration()+"\n");
-				}
-				System.out.println("Customer");
-				for(Ingredient i:customer.getDrink()) {
-					System.out.print(i.getName()+" "+i.getConcentration()+"\n");
-				}
-				//test
-				
+						
 				
 				trytimes -= 1;
 				Alert alert = new Alert(AlertType.CONFIRMATION);
