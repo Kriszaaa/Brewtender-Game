@@ -26,18 +26,18 @@ public class ListOfCustomer {
 	private static Flavoring mint = new Flavoring("Mint","Freshly picked leaves that can be used to add a cooling taste.",1);
 	private static Flavoring soda = new Flavoring("Soda","A liquid that bubbles over. It has no taste, but its mouthfeel packs a punch",1);
 	*/
-	
+	private static ArrayList<Customer> customerList = new ArrayList<Customer>();
+	private static String rand_des;
+	private static ArrayList<Ingredient> rand_rep;
+	private static Random rand = new Random();
+	private static int randnum;
+	private static int number_of_customer = 50;
 	
 	public static void generateCustomerList(Mode mode) {
 		
 		if(mode.equals(Mode.EASY)) {
-			ArrayList<Customer> customerList = new ArrayList<Customer>();
-			String rand_des;
-			ArrayList<Ingredient> rand_rep;
-			Random rand = new Random();
-			int randnum;
-			
-			for(int i=0;i<20;i++) {
+				
+			for(int i=0;i<number_of_customer;i++) {
 				randnum = rand.nextInt(EasyRecipe.getAllrecipes().size());
 				rand_des = EasyRecipe.getAllrecipes().get(randnum).getDescription();
 				rand_rep = EasyRecipe.getAllrecipes().get(randnum).getListofingredient();
@@ -46,13 +46,7 @@ public class ListOfCustomer {
 			setCustomerList(customerList);
 		}else {
 			
-			ArrayList<Customer> customerList = new ArrayList<Customer>();
-			String rand_des;
-			ArrayList<Ingredient> rand_rep;
-			Random rand = new Random();
-			int randnum;
-			
-			for(int i=0;i<20;i++) {
+			for(int i=0;i<number_of_customer;i++) {
 				randnum = rand.nextInt(HardRecipe.getAllrecipes().size());
 				rand_des = HardRecipe.getAllrecipes().get(randnum).getDescription();
 				rand_rep = HardRecipe.getAllrecipes().get(randnum).getListofingredient();

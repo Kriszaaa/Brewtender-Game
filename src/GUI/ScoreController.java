@@ -44,8 +44,6 @@ public class ScoreController implements Initializable{
 			buttonclick.play();
 			Parent root = FXMLLoader.load(getClass().getResource("frontPage.fxml"));
 	        Scene scene = new Scene(root);
-			String css = this.getClass().getResource("frontPage.css").toExternalForm();
-			scene.getStylesheets().add(css);
 			GameLogic.setZeroScore();
 	        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	        stage.setScene(scene);
@@ -58,10 +56,12 @@ public class ScoreController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stu
-		Image image = new Image("file:images/goodjob.jpg");
+		String image_path = (ClassLoader.getSystemResource("goodjob.jpg").toString());
+		Image image = new Image(image_path);
 		//System.out.println(GradingScore.GradingInt(GameLogic.getScore()));
 		if(GradingScore.GradingInt(GameLogic.getScore()) == 2) {
-			image = new Image("file:images/noob.jpg");
+			image_path = (ClassLoader.getSystemResource("noob.jpg").toString());
+			image = new Image(image_path);
 		}
 		grade.setText(GradingScore.Grading(GameLogic.getScore()));
 		score.setText(""+GameLogic.getScore());

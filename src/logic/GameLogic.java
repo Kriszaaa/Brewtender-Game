@@ -25,7 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 public class GameLogic {
 
 	private static Timer playerTimer;
-	private static int playerScore = 0;
+	private static int playerScore = 7500;
 	private static int MinusScore = 0;
 	private static int trytimes = 3;
 	private static int orderrunner = 0;
@@ -86,6 +86,8 @@ public class GameLogic {
 			}
 		}*/
 	}
+
+	
 	public static void callNextCustomer() {
 		trytimes = 3;
 		orderrunner += 1;

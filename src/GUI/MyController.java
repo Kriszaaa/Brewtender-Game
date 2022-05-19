@@ -67,23 +67,13 @@ public class MyController implements Initializable{
 	
 	@FXML
 	private Text milkNumberText,mintNumberText,lemonNumberText,sodaNumberText,cocoaNumberText,caramelNumberText;
-	
-	@FXML
-	private Button easyButton,hardButton;
-	
+
 	@FXML
 	private TableColumn<?, ?> menuList;
 	
 	@FXML
-	private Button newGameBut, quitBut;
-	
-	@FXML
 	private ImageView background;
-	
-	@FXML
-	//private AnchorPane achorPane;
-	
-	
+
 	
 	Timer timer = new Timer(5,0);
 	static volatile boolean exit = false;
@@ -113,11 +103,8 @@ public class MyController implements Initializable{
 	 public void switchToRecipe(ActionEvent event) throws IOException {
 		  buttonclick.play();
 		  Parent root = FXMLLoader.load(getClass().getResource("recipePage.fxml"));
-		  //System.out.println(getClass().getResource("recipepage.css").toExternalForm());
 		  Stage stage = new Stage();
 		  scene = new Scene(root);
-		  String css = this.getClass().getResource("recipepage.css").toExternalForm();
-	      scene.getStylesheets().add(css);
 	      
 		  stage.setTitle("Recipes");
 		  stage.setScene(scene);
@@ -128,11 +115,12 @@ public class MyController implements Initializable{
 		    if (end == true) {
 		    	
 		        Parent root = FXMLLoader.load(getClass().getResource("scorePage.fxml"));
-		        //root.setStyle("-fx-background-color: images/goobjob.jpg");
 		        Scene SceneMenu = new Scene(root);
 		        Stage stage = (Stage)StartButton.getScene().getWindow();
+		        
 		        String css1 = this.getClass().getResource("scorePage.css").toExternalForm();
 			    SceneMenu.getStylesheets().add(css1);
+			    
 		        stage.setScene(SceneMenu);
 		        stage.show();
 		    }

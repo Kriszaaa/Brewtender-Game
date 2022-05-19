@@ -27,7 +27,7 @@ public class EasyRecipe extends RecipeStorage{
 		private static ArrayList<Ingredient> dd = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 2),soda));
 		private static ArrayList<Ingredient> gvs = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 3)));
 		private static ArrayList<Ingredient> sck = new ArrayList(Arrays.asList(Beverage.setCondense(juice, 2),milk));
-		private static ArrayList<Ingredient> scl = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 3),juice));
+		private static ArrayList<Ingredient> scl = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 2),juice));
 		
 		private static ArrayList<Ingredient> bw = new ArrayList(Arrays.asList(tea,milk,mint));
 		private static ArrayList<Ingredient> b = new ArrayList(Arrays.asList(Flavoring.setCondense(milk, 2),tea));
@@ -65,7 +65,7 @@ public class EasyRecipe extends RecipeStorage{
 		
 		
 		//recipes
-		private static String atn_rep = "Coffee + Coffee + Coffee";
+		/*private static String atn_rep = "Coffee + Coffee + Coffee";
 		private static String cp_rep = "Coffee + Milk + Caramel";
 		private static String fr_rep = "Coffee + Coffee + Fizzy Water";
 		private static String ge_rep = "Coffee + Coffee + Milk";
@@ -88,7 +88,7 @@ public class EasyRecipe extends RecipeStorage{
 		private static String mg_rep = "Tea + Tea + Tea";
 		private static String sa_rep = "Tea + Tea + Milk";
 		private static String tb_rep = "Tea + Tea + Lemon";
-		
+		*/
 		
 		public static void createRecipes() {
 			

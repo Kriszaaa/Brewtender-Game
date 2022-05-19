@@ -19,22 +19,3 @@ public class Flavoring extends Ingredient{
 	}
 	
 }
-
-/*public String getFlavor() {
-return flavor;
-}
-public void setFlavor(String name) {
-if(name == "Milk") {
-	this.flavor = "smooth";
-}else if(name == "Cocoa Paste") {
-	this.flavor = "aroma";
-}else if(name == "Caramel") {
-	this.flavor = "sweetness";
-}else if(name == "Soda") {
-	this.flavor = "fizzy";
-}else if(name == "Lemon") {
-	this.flavor = "sour";
-}else if(name == "Mint") {
-	this.flavor = "cooling";
-}
-}*/

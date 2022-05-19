@@ -20,6 +20,6 @@ public class Beverage extends Ingredient implements Edible{
 	}
 	
 	public void canServe() {
-		
+		return;
 	}
 }

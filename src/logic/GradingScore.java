@@ -2,14 +2,14 @@ package logic;
 
 public class GradingScore {
 	public static String Grading(int score) {
-		if(score == 10000) {
+		if(score >= 15000) {
 			return "Perfect";
 		}else if(score >= 7500) {
 			return "Nice try";
-		}else if(score > 5000) {
+		}else if(score >= 5000) {
 			return "Noob";
 		}else {
-			return "Suit you";
+			return "Suits you";
 		}
 	}
 	public static int GradingInt(int score) {

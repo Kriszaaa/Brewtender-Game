@@ -12,6 +12,7 @@ public class Ingredient {
 		this.setName(name);
 		this.setDescription(description);
 	}
+	
 	public Ingredient(String name) {
 		this.setName(name);
 		this.setDescription("");
@@ -21,10 +22,6 @@ public class Ingredient {
 		Ingredient newIngredient = ingredient;
 		newIngredient.setConcentration(concentration);
 		return newIngredient;
-	}
-	
-	public void audio() {
-		
 	}
 	
 	public boolean checkSameIngredient(Ingredient i) {
